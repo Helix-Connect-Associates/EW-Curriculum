@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EastWest MMA Curriculum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ew-black': '#000000',
+                        'ew-gold': '#FFD700',
+                        'ew-gold-dark': '#FFC700',
+                        'ew-gold-light': '#FFE55C',
+                        'ew-white': '#FFFFFF',
+                        'ew-text-primary': '#1A1A1A',
+                        'ew-text-secondary': '#666666',
+                        'ew-border': '#CCCCCC',
+                        'ew-coming-soon': '#999999',
+                        'ew-success': '#28A745',
+                        'ew-error': '#DC3545',
+                        // Belt Colors
+                        'belt-white': '#F5F5F5',
+                        'belt-yellow': '#FFD700',
+                        'belt-orange': '#FF8C00',
+                        'belt-purple': '#8B008B',
+                        'belt-blue': '#0000CD',
+                        'belt-green': '#228B22',
+                        'belt-red': '#DC143C',
+                        'belt-brown': '#8B4513',
+                        'belt-black': '#000000',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'Arial Black', 'sans-serif'],
+                        body: ['Open Sans', 'Segoe UI', 'Tahoma', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-ew-white font-body text-ew-text-primary">
+<div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "EastWest MMA Curriculum",
+  "description": "A web application to provide students of EastWest Martial Arts Academy with mobile-friendly access to the curriculum, including forms, takedowns, one-steps, and testing requirements.",
+  "requestFramePermissions": []
+}

@@ -1,7 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getRotations, resetCurriculum } from '../services/curriculumService';
+import { getRotations, resetCurriculum, createSavePoint, getSavePointInfo, restoreFromSavePoint, deleteSavePoint } from '../services/curriculumService';
 
 interface NavTileProps {
     to: string;
@@ -77,14 +76,83 @@ const FormsTile: React.FC = () => {
     );
 };
 
-const HomePage: React.FC = () => {
-    const handleReset = () => {
-        if (window.confirm("Are you sure you want to reset all curriculum data to the default? Any changes you have made will be lost.")) {
-            resetCurriculum();
-            window.location.reload();
+const CurriculumManagement: React.FC = () => {
+    const [savePointDate, setSavePointDate] = useState<string | null>(null);
+
+    useEffect(() => {
+        setSavePointDate(getSavePointInfo());
+    }, []);
+
+    const handleCreateSavePoint = () => {
+        const newSaveDate = createSavePoint();
+        setSavePointDate(newSaveDate);
+        alert('Save point created successfully!');
+    };
+
+    const handleRestore = () => {
+        if (window.confirm("Are you sure you want to restore from your last save point? Any unsaved changes will be lost.")) {
+            if (restoreFromSavePoint()) {
+                alert('Curriculum restored successfully!');
+                window.location.reload();
+            } else {
+                alert('Failed to restore. No save point found.');
+            }
+        }
+    };
+    
+    const handleDelete = () => {
+        if (window.confirm("Are you sure you want to delete your save point? This action cannot be undone.")) {
+            deleteSavePoint();
+            setSavePointDate(null);
+            alert('Save point deleted.');
         }
     };
 
+    const handleReset = () => {
+        if (window.confirm("Are you sure you want to reset all curriculum data to the default? All your changes and your save point will be lost.")) {
+            resetCurriculum();
+            deleteSavePoint(); // Also delete save point on full reset
+            window.location.reload();
+        }
+    };
+    
+    return (
+         <section className="max-w-4xl mx-auto mb-12 p-6 md:p-8 bg-gray-50 border-2 border-ew-border rounded-lg shadow-md">
+            <h2 className="text-2xl font-heading font-black text-center mb-4">Curriculum Management</h2>
+            <p className="text-center text-ew-text-secondary mb-6">
+                Your curriculum edits are saved automatically. You can also create a save point to back up your current version.
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+                <button onClick={handleCreateSavePoint} className="bg-ew-gold text-ew-black font-semibold py-2 px-4 rounded-md hover:bg-ew-gold-dark transition-colors">
+                    Create Save Point
+                </button>
+                {savePointDate && (
+                    <>
+                        <button onClick={handleRestore} className="bg-ew-success text-white font-semibold py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
+                            Restore from Save Point
+                        </button>
+                        <button onClick={handleDelete} className="text-sm text-ew-text-secondary hover:underline">
+                            Delete Save Point
+                        </button>
+                    </>
+                )}
+            </div>
+            {savePointDate && (
+                <p className="text-center text-sm text-ew-text-secondary mt-4">
+                    Last save: {new Date(savePointDate).toLocaleString()}
+                </p>
+            )}
+             <div className="text-center mt-6 pt-4 border-t border-ew-border">
+                <button onClick={handleReset} className="text-sm text-ew-error hover:underline font-semibold">
+                    Reset Curriculum to Default
+                </button>
+            </div>
+        </section>
+    );
+};
+
+
+const HomePage: React.FC = () => {
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
             <section className="max-w-4xl mx-auto mb-12 p-6 md:p-8 bg-white border-2 border-ew-gold rounded-lg shadow-md">
@@ -95,12 +163,9 @@ const HomePage: React.FC = () => {
                     <p>Testing happens four times per year in March, June, September and December with September being and possibly March being Black Belt testing rotations.</p>
                     <p>All Black Belts under 1st degree or those testing for 2nd Degree and higher that are testing for a new grade, are expected to participate in the September testing.</p>
                 </div>
-                 <div className="text-center mt-6 pt-4 border-t border-ew-border">
-                    <button onClick={handleReset} className="text-sm text-ew-error hover:underline font-semibold">
-                        Reset Curriculum to Default
-                    </button>
-                </div>
             </section>
+
+            <CurriculumManagement />
 
             <section>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

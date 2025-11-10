@@ -8,7 +8,13 @@ export interface Curriculum {
     testingData: TestingData;
 }
 
+interface SavePoint {
+    curriculum: Curriculum;
+    savedAt: string;
+}
+
 const CURRICULUM_STORAGE_KEY = 'ewmma_curriculum';
+const SAVEPOINT_STORAGE_KEY = 'ewmma_curriculum_savepoint';
 
 const defaultCurriculum: Curriculum = {
     rotations,
@@ -94,8 +100,53 @@ export function addForm(rotationSlug: string, newForm: Form): boolean {
     return true;
 }
 
-
 export function resetCurriculum(): void {
     localStorage.removeItem(CURRICULUM_STORAGE_KEY);
     loadedCurriculum = null;
+}
+
+// --- Save Point Functionality ---
+
+export function createSavePoint(): string {
+    const curriculum = getCurriculum();
+    const savedAt = new Date().toISOString();
+    const savePoint: SavePoint = {
+        curriculum: JSON.parse(JSON.stringify(curriculum)), // deep copy
+        savedAt,
+    };
+    localStorage.setItem(SAVEPOINT_STORAGE_KEY, JSON.stringify(savePoint));
+    return savedAt;
+}
+
+export function getSavePointInfo(): string | null {
+    try {
+        const storedData = localStorage.getItem(SAVEPOINT_STORAGE_KEY);
+        if (storedData) {
+            const savePoint: SavePoint = JSON.parse(storedData);
+            return savePoint.savedAt;
+        }
+    } catch (error) {
+        console.error("Failed to get save point info", error);
+    }
+    return null;
+}
+
+export function restoreFromSavePoint(): boolean {
+    const storedData = localStorage.getItem(SAVEPOINT_STORAGE_KEY);
+    if (!storedData) {
+        console.error("No save point found to restore from.");
+        return false;
+    }
+    try {
+        const savePoint: SavePoint = JSON.parse(storedData);
+        saveCurriculum(savePoint.curriculum);
+        return true;
+    } catch (error) {
+        console.error("Failed to restore from save point", error);
+        return false;
+    }
+}
+
+export function deleteSavePoint(): void {
+    localStorage.removeItem(SAVEPOINT_STORAGE_KEY);
 }

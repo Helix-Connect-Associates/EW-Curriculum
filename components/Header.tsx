@@ -7,6 +7,8 @@ const navLinks = [
     { to: '/forms', text: 'Forms' },
     { to: '/takedowns', text: 'Takedowns' },
     { to: '/onesteps', text: 'One Steps' },
+    { to: '/breakaways', text: 'Breakaways' },
+    { to: '/weapon-defense', text: 'Weapon Defense' },
     { to: '/testing-requirements', text: 'Testing' },
 ];
 

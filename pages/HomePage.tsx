@@ -1,6 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { getRotations, resetCurriculum, createSavePoint, getSavePointInfo, restoreFromSavePoint, deleteSavePoint } from '../services/curriculumService';
+import { getRotations, getWelcomeMessage, saveWelcomeMessage } from '../services/curriculumService';
+import { useAuth } from '../contexts/AuthContext';
+import AuthModal from '../components/AuthModal';
+import { Rotation } from '../types';
 
 interface NavTileProps {
     to: string;
@@ -9,6 +13,14 @@ interface NavTileProps {
     isComingSoon?: boolean;
     children?: React.ReactNode;
 }
+
+const EditIcon: React.FC<{ className?: string }> = ({ className = "h-5 w-5" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 20 20" fill="currentColor">
+        <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+        <path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" />
+    </svg>
+);
+
 
 const NavTile: React.FC<NavTileProps> = ({ to, title, icon, isComingSoon = false, children }) => {
     const content = (
@@ -34,149 +46,170 @@ const NavTile: React.FC<NavTileProps> = ({ to, title, icon, isComingSoon = false
 
 const FormsTile: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const node = useRef<HTMLDivElement>(null);
     const rotations = getRotations();
+    const tileRef = useRef<HTMLDivElement>(null);
 
-    const handleClickOutside = (e: MouseEvent) => {
-        if (node.current?.contains(e.target as Node)) {
-            return;
-        }
-        setIsOpen(false);
+    const toggleDropdown = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsOpen(!isOpen);
     };
 
     useEffect(() => {
-        if (isOpen) {
-            document.addEventListener("mousedown", handleClickOutside);
-        } else {
-            document.removeEventListener("mousedown", handleClickOutside);
-        }
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+        const handleClickOutside = (event: MouseEvent) => {
+            if (tileRef.current && !tileRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
         };
-    }, [isOpen]);
 
-    return (
-        <div ref={node} className="relative bg-ew-white border-3 border-ew-gold rounded-lg shadow-lg overflow-hidden min-h-[180px]">
-            <button onClick={() => setIsOpen(!isOpen)} className="w-full h-full flex flex-col items-center justify-center p-6 text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-ew-gold">
-                <div className="text-5xl mb-3">📋</div>
-                <h3 className="text-2xl font-bold font-heading">Forms</h3>
-                <span className="text-sm text-ew-text-secondary">Click to select rotation ▼</span>
-            </button>
-            {isOpen && (
-                <div className="absolute top-0 left-0 w-full h-full bg-ew-black text-ew-gold p-4 z-10 flex flex-col justify-center animate-fade-in">
-                    {rotations.map(r => (
-                        <Link key={r.id} to={`/forms/${r.slug}`} className="block text-center py-2 text-lg hover:bg-ew-gold hover:text-ew-black rounded transition-colors">
-                            {r.name.split(':')[0]}
-                            <span className="block text-xs opacity-70">{r.months}</span>
-                        </Link>
-                    ))}
-                </div>
-            )}
-        </div>
-    );
-};
-
-const CurriculumManagement: React.FC = () => {
-    const [savePointDate, setSavePointDate] = useState<string | null>(null);
-
-    useEffect(() => {
-        setSavePointDate(getSavePointInfo());
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
     }, []);
 
-    const handleCreateSavePoint = () => {
-        const newSaveDate = createSavePoint();
-        setSavePointDate(newSaveDate);
-        alert('Save point created successfully!');
-    };
-
-    const handleRestore = () => {
-        if (window.confirm("Are you sure you want to restore from your last save point? Any unsaved changes will be lost.")) {
-            if (restoreFromSavePoint()) {
-                alert('Curriculum restored successfully!');
-                window.location.reload();
-            } else {
-                alert('Failed to restore. No save point found.');
-            }
-        }
-    };
-    
-    const handleDelete = () => {
-        if (window.confirm("Are you sure you want to delete your save point? This action cannot be undone.")) {
-            deleteSavePoint();
-            setSavePointDate(null);
-            alert('Save point deleted.');
-        }
-    };
-
-    const handleReset = () => {
-        if (window.confirm("Are you sure you want to reset all curriculum data to the default? All your changes and your save point will be lost.")) {
-            resetCurriculum();
-            deleteSavePoint(); // Also delete save point on full reset
-            window.location.reload();
-        }
-    };
-    
     return (
-         <section className="max-w-4xl mx-auto mb-12 p-6 md:p-8 bg-gray-50 border-2 border-ew-border rounded-lg shadow-md">
-            <h2 className="text-2xl font-heading font-black text-center mb-4">Curriculum Management</h2>
-            <p className="text-center text-ew-text-secondary mb-6">
-                Your curriculum edits are saved automatically. You can also create a save point to back up your current version.
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
-                <button onClick={handleCreateSavePoint} className="bg-ew-gold text-ew-black font-semibold py-2 px-4 rounded-md hover:bg-ew-gold-dark transition-colors">
-                    Create Save Point
-                </button>
-                {savePointDate && (
-                    <>
-                        <button onClick={handleRestore} className="bg-ew-success text-white font-semibold py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
-                            Restore from Save Point
-                        </button>
-                        <button onClick={handleDelete} className="text-sm text-ew-text-secondary hover:underline">
-                            Delete Save Point
-                        </button>
-                    </>
+        <div ref={tileRef} className="bg-ew-white border-3 border-ew-gold rounded-lg shadow-lg overflow-visible min-h-[180px] relative">
+             <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+                <div className="text-5xl mb-3">🥋</div>
+                <h3 className="text-2xl font-bold font-heading">Forms</h3>
+                <p className="mt-2 text-sm text-ew-text-secondary">Select a rotation to practice your patterns.</p>
+                <div className="mt-4">
+                    <button
+                        onClick={toggleDropdown}
+                        className="bg-ew-gold text-ew-black font-bold py-2 px-4 rounded hover:bg-ew-gold-dark transition-colors focus:outline-none focus:ring-2 focus:ring-ew-gold-dark"
+                        aria-haspopup="true"
+                        aria-expanded={isOpen}
+                    >
+                        Select Rotation
+                        <span className={`inline-block ml-2 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+                    </button>
+                </div>
+
+                {isOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white border border-ew-border rounded-lg shadow-xl z-10">
+                        <ul className="py-1">
+                            {rotations.map((rotation) => (
+                                <li key={rotation.id}>
+                                    <Link
+                                        to={`/forms/${rotation.slug}`}
+                                        onClick={() => setIsOpen(false)}
+                                        className="block w-full text-left px-4 py-2 text-sm text-ew-text-primary hover:bg-ew-gold-light transition-colors"
+                                    >
+                                        {rotation.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 )}
             </div>
-            {savePointDate && (
-                <p className="text-center text-sm text-ew-text-secondary mt-4">
-                    Last save: {new Date(savePointDate).toLocaleString()}
-                </p>
-            )}
-             <div className="text-center mt-6 pt-4 border-t border-ew-border">
-                <button onClick={handleReset} className="text-sm text-ew-error hover:underline font-semibold">
-                    Reset Curriculum to Default
-                </button>
-            </div>
-        </section>
+        </div>
     );
 };
 
 
 const HomePage: React.FC = () => {
+    const [welcomeMessage, setWelcomeMessage] = useState('');
+    const [editedMessage, setEditedMessage] = useState('');
+    const [isEditingMessage, setIsEditingMessage] = useState(false);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const { isAuthenticated } = useAuth();
+
+    useEffect(() => {
+        setWelcomeMessage(getWelcomeMessage());
+    }, []);
+
+    const handleEditClick = () => {
+        if (isAuthenticated) {
+            setEditedMessage(welcomeMessage);
+            setIsEditingMessage(true);
+        } else {
+            setIsAuthModalOpen(true);
+        }
+    };
+
+    const handleSuccessfulLogin = () => {
+        setIsAuthModalOpen(false);
+        setEditedMessage(welcomeMessage);
+        setIsEditingMessage(true);
+    };
+
+    const handleSaveMessage = () => {
+        saveWelcomeMessage(editedMessage);
+        setWelcomeMessage(editedMessage);
+        setIsEditingMessage(false);
+    };
+
+    const handleCancelEdit = () => {
+        setIsEditingMessage(false);
+    };
+
     return (
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-            <section className="max-w-4xl mx-auto mb-12 p-6 md:p-8 bg-white border-2 border-ew-gold rounded-lg shadow-md">
-                <h2 className="text-3xl font-heading font-black text-center mb-4">Welcome to EastWest MMA</h2>
-                <div className="space-y-4 text-ew-text-secondary text-base leading-relaxed">
-                    <p>Welcome to the EastWest MMA curriculum site. The purpose of this site is to provide students additional resources to help them with the curriculum of the school. The information on this site is maintained by students of the school and is NOT considered the official school curriculum. Instead, it is intended to assist you in your preparation for testing and provide you supplemental information based on the experience of many of the Black Belts that have successfully made it through the program.</p>
-                    <p>If you find anything on this site that is inaccurate, please let the site administrators know and they will research it and make the appropriate changes. Additionally, if you have ideas on how to make it better, please let them know as well.</p>
-                    <p>Testing happens four times per year in March, June, September and December with September being and possibly March being Black Belt testing rotations.</p>
-                    <p>All Black Belts under 1st degree or those testing for 2nd Degree and higher that are testing for a new grade, are expected to participate in the September testing.</p>
+        <div className="bg-ew-black">
+            <AuthModal
+                isOpen={isAuthModalOpen}
+                onClose={() => setIsAuthModalOpen(false)}
+                onSuccess={handleSuccessfulLogin}
+            />
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+                <div className="text-center">
+                    <h1 className="text-4xl md:text-5xl font-heading font-black text-ew-gold">EastWest MMA Curriculum</h1>
+                    <p className="mt-2 text-lg text-ew-gold-light opacity-90 max-w-2xl mx-auto">Your guide to the forms, techniques, and requirements for each belt level.</p>
                 </div>
-            </section>
 
-            <CurriculumManagement />
+                <div className="my-12 bg-ew-black text-ew-gold-light p-6 md:p-8 rounded-lg shadow-lg border-2 border-ew-gold relative">
+                    {isEditingMessage ? (
+                        <div>
+                            <h3 className="text-xl font-bold font-heading mb-4 text-ew-gold">Edit Welcome Message</h3>
+                            <textarea
+                                value={editedMessage}
+                                onChange={(e) => setEditedMessage(e.target.value)}
+                                className="w-full h-80 bg-black text-ew-gold-light p-4 rounded border border-ew-gold-dark font-body text-base focus:ring-ew-gold focus:border-ew-gold"
+                                aria-label="Welcome message editor"
+                            />
+                            <div className="mt-4 flex justify-end gap-4">
+                                <button onClick={handleCancelEdit} className="bg-gray-500 text-white py-2 px-4 rounded font-semibold hover:bg-gray-600 transition-colors">Cancel</button>
+                                <button onClick={handleSaveMessage} className="bg-ew-success text-white py-2 px-4 rounded font-semibold hover:bg-green-700 transition-colors">Save Message</button>
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                            <button 
+                                onClick={handleEditClick} 
+                                className="absolute top-3 right-3 p-2 text-ew-black bg-ew-gold rounded-full hover:bg-ew-gold-dark transition-colors focus:outline-none focus:ring-2 focus:ring-ew-gold-light" 
+                                aria-label="Edit welcome message"
+                            >
+                                <EditIcon />
+                            </button>
+                            <div className="space-y-4 text-left text-base">
+                                {welcomeMessage.split('\n\n').map((paragraph, index) => (
+                                    <p key={index}>{paragraph}</p>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </div>
 
-            <section>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <FormsTile />
-                    <NavTile to="/takedowns" title="Takedowns" icon="🥋" />
-                    <NavTile to="/onesteps" title="One Steps" icon="🥊" />
-                    <NavTile to="/breakaways" title="Breakaways" icon="🔒" isComingSoon={true} />
-                    <NavTile to="/weapon-defense" title="Weapon Defense" icon="🛡️" isComingSoon={true} />
-                    <NavTile to="/testing-requirements" title="Testing" icon="📝" />
+                    <NavTile to="/takedowns" title="Takedowns" icon="🤼">
+                        <p className="mt-2 text-sm text-ew-text-secondary">Master blocks, counters, and grounding techniques.</p>
+                    </NavTile>
+                    <NavTile to="/onesteps" title="One Steps" icon="🥊">
+                         <p className="mt-2 text-sm text-ew-text-secondary">Practice precise blocks and counters for testing.</p>
+                    </NavTile>
+                    <NavTile to="/breakaways" title="Breakaways" icon="🏃">
+                        <p className="mt-2 text-sm text-ew-text-secondary">Learn escapes from various grabs and holds.</p>
+                    </NavTile>
+                    <NavTile to="/weapon-defense" title="Weapon Defense" icon="⚔️">
+                        <p className="mt-2 text-sm text-ew-text-secondary">Techniques against knife and gun threats.</p>
+                    </NavTile>
+                    <NavTile to="/testing-requirements" title="Testing" icon="📋">
+                        <p className="mt-2 text-sm text-ew-text-secondary">View belt requirements and board breaks.</p>
+                    </NavTile>
                 </div>
-            </section>
+            </div>
         </div>
     );
 };

@@ -1,38 +1,67 @@
-
 export interface Form {
     belt: string;
     name: string;
-    video_url?: string;
     card_url?: string;
+    video_url?: string;
     steps: string[];
 }
 
 export interface Rotation {
     id: number;
-    name: string;
     slug: string;
+    name: string;
     months: string;
     forms: Form[];
 }
 
 export interface Takedown {
     id: number;
-    child_belt: string;
     adult_belt: string;
+    child_belt: string;
     technique_right: string;
     technique_left: string;
-    video_time: string;
     video_url: string;
+    video_time: string;
 }
 
 export interface OneStep {
     id: number;
-    belt: string;
     number: number;
+    belt: string;
     technique_right: string;
     technique_left: string;
-    video_time: string;
     video_url: string;
+    video_time: string;
+}
+
+export interface Breakaway {
+    id: number;
+    grab: string;
+    category: string;
+    technique: string;
+    video_url: string;
+    video_time: string;
+}
+
+export interface WeaponDefense {
+    id: number;
+    weapon: string;
+    strike: string;
+    defense: string;
+    finishing_move: string;
+    video_url: string;
+    video_time: string;
+}
+
+export interface LevelRequirement {
+    level: string;
+    first: string;
+    last: string;
+    form: string;
+    take_down: string;
+    one_step: string;
+    challenge: string;
+    hours: string;
 }
 
 export interface BoardBreak {
@@ -42,26 +71,16 @@ export interface BoardBreak {
     break_technique: string;
 }
 
-export interface AdultProgram {
-    rank: string;
-    number: number;
-    test_for: string;
-    year: number;
-    testing_hours: number;
-    challenge: number;
-    forms: string;
-    belt_color: string;
-}
-
-export interface HighSchoolProgram {
-    belt: string;
-    number: number;
-    form: string;
-    belt_color: string;
-}
-
 export interface TestingData {
+    level_requirements: LevelRequirement[];
     board_breaks: BoardBreak[];
-    adult_program: AdultProgram[];
-    high_school_program: HighSchoolProgram[];
+}
+
+export interface Curriculum {
+    rotations: Rotation[];
+    takedowns: Takedown[];
+    onesteps: OneStep[];
+    breakaways: Breakaway[];
+    weaponDefenses: WeaponDefense[];
+    testingData: TestingData;
 }

@@ -1,8 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRotations, updateForm, addForm } from '../services/curriculumService';
 import Breadcrumb from '../components/Breadcrumb';
 import { Form } from '../types';
+import { useAuth } from '../contexts/AuthContext';
+import AuthModal from '../components/AuthModal';
 
 const YouTubeIcon: React.FC = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -24,13 +27,22 @@ const PlusIcon: React.FC = () => (
 );
 
 
-const FormCard: React.FC<{ form: Form; formIndex: number; rotationSlug: string; onSave: () => void }> = ({ form, formIndex, rotationSlug, onSave }) => {
+const FormCard: React.FC<{ form: Form; formIndex: number; rotationSlug: string; onSave: () => void, onRequestAuth: (callback: () => void) => void }> = ({ form, formIndex, rotationSlug, onSave, onRequestAuth }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedForm, setEditedForm] = useState<Form>(() => JSON.parse(JSON.stringify(form)));
+    const { isAuthenticated } = useAuth();
 
     useEffect(() => {
         setEditedForm(JSON.parse(JSON.stringify(form)));
     }, [form]);
+
+    const handleEditClick = () => {
+        if (isAuthenticated) {
+            setIsEditing(true);
+        } else {
+            onRequestAuth(() => setIsEditing(true));
+        }
+    };
 
     const handleSave = () => {
         const stepsAsString = (Array.isArray(editedForm.steps) ? editedForm.steps.join('\n') : editedForm.steps) as string;
@@ -73,7 +85,6 @@ const FormCard: React.FC<{ form: Form; formIndex: number; rotationSlug: string; 
                     <div>
                         <label htmlFor={`steps-${formIndex}`} className="block text-sm font-medium text-ew-text-secondary">Steps (one per line)</label>
                         <textarea name="steps" id={`steps-${formIndex}`} rows={10} value={Array.isArray(editedForm.steps) ? editedForm.steps.join('\n') : editedForm.steps} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2 font-mono text-xs"></textarea>
-                        <p className="mt-2 text-xs text-ew-text-secondary bg-yellow-100 p-2 rounded">Warning: You are editing raw HTML content. Changes to HTML tags like `&lt;span&gt;` may affect styling.</p>
                     </div>
                 </div>
                 <div className="mt-6 flex justify-end gap-4">
@@ -102,7 +113,7 @@ const FormCard: React.FC<{ form: Form; formIndex: number; rotationSlug: string; 
                                 View on YouTube
                             </a>
                         )}
-                         <button onClick={() => setIsEditing(true)} className="inline-flex items-center gap-2 bg-ew-gold text-ew-black py-2 px-4 rounded-md font-semibold hover:bg-ew-gold-dark transition-colors">
+                         <button onClick={handleEditClick} className="inline-flex items-center gap-2 bg-ew-gold text-ew-black py-2 px-4 rounded-md font-semibold hover:bg-ew-gold-dark transition-colors">
                            <EditIcon />
                             Edit
                         </button>
@@ -191,10 +202,29 @@ const FormsRotationPage: React.FC = () => {
     const { rotationSlug } = useParams<{ rotationSlug: string }>();
     const [forceUpdateKey, forceUpdate] = React.useReducer((x) => x + 1, 0);
     const [isAdding, setIsAdding] = useState(false);
+    const [authModalState, setAuthModalState] = useState<{ isOpen: boolean; onSuccess: () => void }>({ isOpen: false, onSuccess: () => {} });
+    const { isAuthenticated } = useAuth();
 
     const allRotations = getRotations();
     const rotation = allRotations.find(r => r.slug === rotationSlug);
 
+    const handleRequestAuth = (callback: () => void) => {
+        setAuthModalState({ isOpen: true, onSuccess: callback });
+    };
+
+    const handleSuccessfulLogin = () => {
+        authModalState.onSuccess();
+        setAuthModalState({ isOpen: false, onSuccess: () => {} });
+    };
+
+    const handleAddClick = () => {
+        if (isAuthenticated) {
+            setIsAdding(true);
+        } else {
+            handleRequestAuth(() => setIsAdding(true));
+        }
+    };
+    
     if (!rotation) {
         return (
             <div className="container mx-auto px-4 py-12 text-center">
@@ -218,6 +248,11 @@ const FormsRotationPage: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            <AuthModal 
+                isOpen={authModalState.isOpen}
+                onClose={() => setAuthModalState({ isOpen: false, onSuccess: () => {} })}
+                onSuccess={handleSuccessfulLogin}
+            />
             <Breadcrumb crumbs={[
                 { label: 'Home', path: '/' },
                 { label: 'Forms', path: '/forms' },
@@ -230,7 +265,7 @@ const FormsRotationPage: React.FC = () => {
 
             <div className="space-y-8">
                 {rotation.forms.length > 0 ? (
-                    rotation.forms.map((form, index) => <FormCard key={`${form.name}-${index}-${forceUpdateKey}`} form={form} formIndex={index} rotationSlug={rotation.slug} onSave={forceUpdate} />)
+                    rotation.forms.map((form, index) => <FormCard key={`${form.name}-${index}-${forceUpdateKey}`} form={form} formIndex={index} rotationSlug={rotation.slug} onSave={forceUpdate} onRequestAuth={handleRequestAuth} />)
                 ) : (
                     <div className="bg-white p-8 rounded-lg border-2 border-ew-border shadow-md text-center">
                         <h2 className="text-2xl font-bold font-heading">No Forms Yet</h2>
@@ -242,7 +277,7 @@ const FormsRotationPage: React.FC = () => {
             <div className="mt-12 text-center">
                 {!isAdding ? (
                     <button 
-                        onClick={() => setIsAdding(true)} 
+                        onClick={handleAddClick}
                         className="inline-flex items-center gap-2 bg-ew-gold text-ew-black py-3 px-6 rounded-md font-semibold hover:bg-ew-gold-dark transition-colors shadow-lg text-lg">
                         <PlusIcon />
                         Add New Form

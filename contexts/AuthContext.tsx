@@ -4,7 +4,7 @@ import { authService } from '../services/authService';
 
 interface AuthContextType {
     isAuthenticated: boolean;
-    login: (email: string, passphrase: string) => boolean;
+    login: (email: string, passphrase: string) => Promise<boolean>;
     logout: () => void;
 }
 
@@ -13,8 +13,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(authService.isAuthenticated());
 
-    const login = (email: string, passphrase: string): boolean => {
-        const success = authService.login(email, passphrase);
+    const login = async (email: string, passphrase: string): Promise<boolean> => {
+        const success = await authService.login(email, passphrase);
         if (success) {
             setIsAuthenticated(true);
         }

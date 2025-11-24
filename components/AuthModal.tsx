@@ -12,17 +12,30 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
     const [email, setEmail] = useState('');
     const [passphrase, setPassphrase] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const { login } = useAuth();
 
     if (!isOpen) return null;
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
-        if (login(email, passphrase)) {
-            onSuccess();
-        } else {
-            setError('Invalid email or passphrase. Please try again.');
+        setIsLoading(true);
+        
+        try {
+            const success = await login(email, passphrase);
+            if (success) {
+                onSuccess();
+                // Reset form
+                setEmail('');
+                setPassphrase('');
+            } else {
+                setError('Invalid email or passphrase. Please try again.');
+            }
+        } catch (err) {
+            setError('An error occurred during login.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -45,6 +58,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full px-3 py-2 border border-ew-border rounded-md focus:outline-none focus:ring-2 focus:ring-ew-gold"
                             required
+                            disabled={isLoading}
                         />
                     </div>
                     <div className="mb-6">
@@ -56,15 +70,25 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
                             onChange={(e) => setPassphrase(e.target.value)}
                             className="w-full px-3 py-2 border border-ew-border rounded-md focus:outline-none focus:ring-2 focus:ring-ew-gold"
                             required
+                            disabled={isLoading}
                         />
                     </div>
                     {error && <p className="text-ew-error text-sm mb-4">{error}</p>}
                     <div className="flex justify-end gap-4">
-                        <button type="button" onClick={onClose} className="py-2 px-4 bg-gray-200 text-gray-800 rounded-md font-semibold hover:bg-gray-300 transition-colors">
+                        <button 
+                            type="button" 
+                            onClick={onClose} 
+                            className="py-2 px-4 bg-gray-200 text-gray-800 rounded-md font-semibold hover:bg-gray-300 transition-colors"
+                            disabled={isLoading}
+                        >
                             Cancel
                         </button>
-                        <button type="submit" className="py-2 px-4 bg-ew-gold text-ew-black rounded-md font-semibold hover:bg-ew-gold-dark transition-colors">
-                            Login
+                        <button 
+                            type="submit" 
+                            className={`py-2 px-4 bg-ew-gold text-ew-black rounded-md font-semibold hover:bg-ew-gold-dark transition-colors ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Verifying...' : 'Login'}
                         </button>
                     </div>
                 </form>

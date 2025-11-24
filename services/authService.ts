@@ -7,6 +7,7 @@ try {
     // We access this directly so Vite's static analysis can replace it during build.
     // @ts-ignore
     envHash = import.meta.env.VITE_ADMIN_PASSPHRASE_HASH;
+
 } catch (e) {
     // This catch block handles environments (like some previews) where accessing import.meta.env might throw.
     console.debug("Vite env var access skipped:", e);
@@ -59,7 +60,8 @@ export const authService = {
     console.log("Auth Attempt:", { email: cleanedEmail, mode: IS_CUSTOM_SECURITY_MODE ? 'Custom' : 'Default' });
 
     const isAuthorizedEmail = AUTHORIZED_EDITORS.includes(cleanedEmail);
-    
+  
+
     if (!isAuthorizedEmail) {
         console.warn("Unauthorized email attempted:", cleanedEmail);
         return false;
@@ -67,6 +69,13 @@ export const authService = {
 
     // 1. Try Secure Hashing
     const inputHash = await sha256(cleanedPassphrase);
+console.log("Input password:", cleanedPassphrase); // See exactly what's being hashed
+console.log("Input hash:", inputHash);
+console.log("Expected hash:", ADMIN_PASSPHRASE_HASH);
+console.log("Match?", inputHash === ADMIN_PASSPHRASE_HASH); 
+console.log("envHash value:", envHash);
+console.log("ADMIN_PASSPHRASE_HASH:", ADMIN_PASSPHRASE_HASH);
+console.log("IS_CUSTOM_SECURITY_MODE:", IS_CUSTOM_SECURITY_MODE); 
     
     // If the hash matches the stored hash (either Env Var or Default)
     if (inputHash && inputHash === ADMIN_PASSPHRASE_HASH) {

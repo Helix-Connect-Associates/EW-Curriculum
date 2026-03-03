@@ -919,7 +919,7 @@ export const testingData: TestingData = {
         { level: "Beginner", first: "White", last: "Blue", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", hours: "4" },
         { level: "Intermediate", first: "Blue", last: "Red", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", hours: "6" },
         { level: "Intermediate", first: "Red", last: "Red Black", form: "Red Belt", take_down: "Rear Naked Choke", one_step: "11", challenge: "100", hours: "8" },
-        { level: "Advanced", first: "Black", last: "Black White", form: "All for Rotation", take_down: "Dragon Tail", one_step: "15", challenge: "100", hours: "8" },
+        { level: "Advanced", first: "Red Black", last: "Black White", form: "All for Rotation", take_down: "Dragon Tail", one_step: "15", challenge: "100", hours: "8" },
         { level: "Advanced", first: "Black White", last: "Black Brown", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", challenge: "100", hours: "8" },
         { level: "Black Belt", first: "Black Brown", last: "Black", form: "All Rotations plus Weapon", take_down: "Dragon Tail", one_step: "15", challenge: "100", hours: "26" }
     ],

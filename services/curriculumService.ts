@@ -4,6 +4,10 @@ import { rotations, takedowns, onesteps, testingData, breakaways, weaponDefenses
 
 const CURRICULUM_STORAGE_KEY = 'ewmma_curriculum';
 const WELCOME_MESSAGE_STORAGE_KEY = 'ewmma_welcome_message';
+const CURRICULUM_VERSION = '1.3'; // BUMP THIS to trigger a refresh for everyone
+const VERSION_KEY = 'ewmma_curriculum_version';
+
+
 
 const defaultWelcomeMessage = `Welcome to the EastWest MMA curriculum site. The purpose of this site is to provide students additional resources to help them with the curriculum of the school. The information on this site is maintained by students of the school and is NOT considered the official school curriculum.
 
@@ -24,24 +28,44 @@ const defaultCurriculum: Curriculum = {
 
 let loadedCurriculum: Curriculum | null = null;
 
-function getCurriculum(): Curriculum {
-    if (loadedCurriculum) {
-        return loadedCurriculum;
+
+
+export function getCurriculum(): Curriculum {
+    const savedVersion = localStorage.getItem(VERSION_KEY);
+    
+    // Check if the version has changed
+    if (savedVersion !== CURRICULUM_VERSION) {
+        console.log("New version detected. Refreshing curriculum data...");
+        
+        // SELECTIVE CLEAR:
+        // We only remove the curriculum. Any key like 'ewmma_user' 
+        // or 'auth_token' is NOT mentioned here, so it stays in the browser.
+        localStorage.removeItem(CURRICULUM_STORAGE_KEY);
+        
+        // Update to the new version so this doesn't run again on next load
+        localStorage.setItem(VERSION_KEY, CURRICULUM_VERSION);
+        
+        // Reset the in-memory variable
+        loadedCurriculum = null;
     }
 
-    try {
-        const storedData = localStorage.getItem(CURRICULUM_STORAGE_KEY);
-        if (storedData) {
-            loadedCurriculum = JSON.parse(storedData);
-            return loadedCurriculum!;
+    // Standard loading logic follows...
+    if (loadedCurriculum) return loadedCurriculum;
+
+    const saved = localStorage.getItem(CURRICULUM_STORAGE_KEY);
+    if (saved) {
+        try {
+            loadedCurriculum = JSON.parse(saved);
+            return loadedCurriculum as Curriculum;
+        } catch (e) {
+            console.error("Failed to parse curriculum", e);
         }
-    } catch (error) {
-        console.error("Failed to parse curriculum from localStorage", error);
     }
 
-    loadedCurriculum = JSON.parse(JSON.stringify(defaultCurriculum)); // deep copy
-    localStorage.setItem(CURRICULUM_STORAGE_KEY, JSON.stringify(loadedCurriculum));
-    return loadedCurriculum;
+    // If no saved data (or we just cleared it), load from code defaults
+    loadedCurriculum = JSON.parse(JSON.stringify(defaultCurriculum));
+    saveCurriculum(loadedCurriculum!);
+    return loadedCurriculum!;
 }
 
 function saveCurriculum(curriculum: Curriculum): void {
@@ -201,4 +225,17 @@ export function deleteWeaponDefense(idToDelete: number): boolean {
         return true;
     }
     return false;
+}
+
+//Testing Reset Function
+export function resetCurriculumToDefault(): void {
+    try {
+        localStorage.removeItem(CURRICULUM_STORAGE_KEY);
+        loadedCurriculum = null; // Clear the memory cache
+        // Re-initialize with current hardcoded data
+        getCurriculum(); 
+        window.location.reload(); // Refresh to show new data immediately
+    } catch (error) {
+        console.error("Failed to reset curriculum", error);
+    }
 }

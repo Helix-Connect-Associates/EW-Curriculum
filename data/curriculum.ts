@@ -512,8 +512,8 @@ export const takedowns: Takedown[] = [
       "id": 1,
       "child_belt": "White",
       "adult_belt": "White",
-      "technique_right": "#1 - Step forward (Left) High Block (Left), Grab on to the Wrist, Reverse Punch, Grab on to the Shoulder, Step Behind (right), Push Shoulder Takedown, Punch (Right)",
-      "technique_left": "#1 - Step forward (Right) High Block (Right), Grab on to the Wrist, Reverse Punch (Left), Grab on to the Shoulder, Step Behind (left), Push Shoulder Takedown, Punch (Left)",
+      "technique_right": "#1: Step forward (Left) High Block (Left), Grab on to the Wrist, Reverse Punch, Grab on to the Shoulder, Step Behind (right), Push Shoulder Takedown, Punch (Right)",
+      "technique_left": "#1:  Step forward (Right) High Block (Right), Grab on to the Wrist, Reverse Punch (Left), Grab on to the Shoulder, Step Behind (left), Push Shoulder Takedown, Punch (Left)",
       "video_time": ":05",
       "video_url": "https://youtu.be/ptK4dI78_LA?t=5"
     },
@@ -521,8 +521,8 @@ export const takedowns: Takedown[] = [
       "id": 2,
       "child_belt": "Yellow",
       "adult_belt": "Yellow",
-      "technique_right": "Roundhouse #1 (Basic) Grab with your left arm (overhook), reverse punch to the body (right), grab on to the shoulder (right), step behind with the right foot, take down, stomp the groin",
-      "technique_left": "Roundhouse #1 (Basic) Grab with your right arm (overhook), reverse punch to the body (left), grab on to the shoulder (left), step behind with the left foot, take down, stomp the groin",
+      "technique_right": "Roundhouse #1 (Basic): Step aside, grab with your left arm (overhook), reverse punch to the body (right), grab on to the shoulder (right), step behind with the right foot, take down, stomp the groin",
+      "technique_left": "Roundhouse #1 (Basic): Step aside grab with your right arm (overhook), reverse punch to the body (left), grab on to the shoulder (left), step behind with the left foot, take down, stomp the groin",
       "video_time": ":28",
       "video_url": "https://youtu.be/ptK4dI78_LA?t=28"
     },
@@ -530,8 +530,8 @@ export const takedowns: Takedown[] = [
       "id": 3,
       "child_belt": "Yellow",
       "adult_belt": "Yellow",
-      "technique_right": "Roundhouse #2 (Bow)  Grab with your left hand (overhook), reverse punch to the body (right), grab with your right hand (underhook), pivot to your left (bow)",
-      "technique_left": "Roundhouse #2 (Bow)  Grab with your right hand (overhook), reverse punch to the body (left), grab with your left hand (underhook), pivot to your right (bow)",
+      "technique_right": "Roundhouse #2 (Bow):  Step aside grab with your left hand (overhook), reverse punch to the body (right), grab with your right hand (underhook), pivot to your left (bow)",
+      "technique_left": "Roundhouse #2 (Bow):  Step aside grab with your right hand (overhook), reverse punch to the body (left), grab with your left hand (underhook), pivot to your right (bow)",
       "video_time": ":45",
       "video_url": "https://youtu.be/ptK4dI78_LA?t=45"
     },
@@ -539,8 +539,8 @@ export const takedowns: Takedown[] = [
       "id": 4,
       "child_belt": "Yellow",
       "adult_belt": "Yellow",
-      "technique_right": "Roundhouse #3 (Drag) Grab with your left hand (overhook), reverse punch (right), grab on to wrist, pull down, pivot to your right.",
-      "technique_left": "Roundhouse #3 (Drag) Grab with your right hand (overhook), reverse punch (left), grab on to wrist, pull down, pivot to your right.",
+      "technique_right": "Roundhouse #3 (Drag): Step aside grab with your left hand (overhook), reverse punch (right), grab on to wrist, pull down, pivot to your right.",
+      "technique_left": "Roundhouse #3 (Drag): Step grab with your right hand (overhook), reverse punch (left), grab on to wrist, pull down, pivot to your right.",
       "video_time": ":60",
       "video_url": "https://youtu.be/ptK4dI78_LA?t=60"
     },
@@ -548,7 +548,7 @@ export const takedowns: Takedown[] = [
       "id": 5,
       "child_belt": "Yellow/Black",
       "adult_belt": "Yellow",
-      "technique_right": "Drop n' Flop Arms go up in the middle, grab shirt (Pinky's up), sit with your bottom, feet like a V kick them over",
+      "technique_right": "Drop n' Flop: Break arm grab by bringing arms go up in the middle, grab shirt (Pinky's up), sit with your bottom, feet like a V on hips kick them over",
       "technique_left": "",
       "video_time": "1:16",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=76"
@@ -557,8 +557,8 @@ export const takedowns: Takedown[] = [
       "id": 6,
       "child_belt": "Orange",
       "adult_belt": "Orange",
-      "technique_right": "Single Leg Sweep Level change, left hand on hip, left leg between, right hand behind the ankle, push left hand, pick up right hand, drive forward, step to the side.",
-      "technique_left": "Single Leg Sweep Level change, right hand on hip, right leg between, left hand behind the ankle, push right hand, pick up left hand, drive forward, step to the side.",
+      "technique_right": "Single Leg Sweep: Level change, left hand on hip, left leg between, right hand behind the ankle, push left hand, pick up right hand, drive forward, step to the side.",
+      "technique_left": "Single Leg Sweep: Level change, right hand on hip, right leg between, left hand behind the ankle, push right hand, pick up left hand, drive forward, step to the side.",
       "video_time": "1:33",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=93"
     },
@@ -566,8 +566,8 @@ export const takedowns: Takedown[] = [
       "id": 7,
       "child_belt": "Orange/Black",
       "adult_belt": "Orange",
-      "technique_right": "Double Leg Sweep Level change, left ear to the hip, grab behind both knees, push/pull, take them down, reverse punch",
-      "technique_left": "Double Leg Sweep Level change, right ear to the hip, grab behind both knees, push/pull, take them down, reverse punch",
+      "technique_right": "Double Leg Sweep: Level change, left ear to the hip, grab behind both knees, push knees together and pull them toward you while thrusting forward with your shoulder, take them down stepping to the opposite side as head punch to the stomach.",
+      "technique_left": "Double Leg Sweep: Level change, right ear to the hip, grab behind both knees, push knees together and pull them toward you while thrusting forward with your shoulder, take them down stepping to the opposite side as head punch to the stomach.",
       "video_time": "1:48",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=108"
     },
@@ -575,8 +575,8 @@ export const takedowns: Takedown[] = [
       "id": 8,
       "child_belt": "Purple",
       "adult_belt": "Purple",
-      "technique_right": "Bear Hug (Under Arms Between Leg)  Elbow strike, elbow strike, grab leg in between, pull up",
-      "technique_left": "Bear Hug (Under Arms Between Leg)  Elbow strike, elbow strike, grab leg in between, pull up",
+      "technique_right": "Bear Hug (Under Arms Between Leg):  Elbow strike, elbow strike, grab leg in between, pull up",
+      "technique_left": "Bear Hug (Under Arms Between Leg):  Elbow strike, elbow strike, grab leg in between, pull up",
       "video_time": "2:03",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=123"
     },
@@ -584,8 +584,8 @@ export const takedowns: Takedown[] = [
       "id": 9,
       "child_belt": "Purple",
       "adult_belt": "Purple",
-      "technique_right": "Bear Hug (Double Leg) step aside, strike to the groin, step behind with your right foot, arms to the front, grab the knees, lift up, take down",
-      "technique_left": "Bear Hug (Double Leg) step aside, strike to the groin, step behind with your left foot, arms to the front, grab the knees, lift up, take down",
+      "technique_right": "Bear Hug (Double Leg): step aside, strike to the groin, step behind with your right foot, arms to the front, grab the knees, lift up, take down",
+      "technique_left": "Bear Hug (Double Leg): step aside, strike to the groin, step behind with your left foot, arms to the front, grab the knees, lift up, take down",
       "video_time": "2:17",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=137"
     },
@@ -593,8 +593,8 @@ export const takedowns: Takedown[] = [
       "id": 10,
       "child_belt": "Purple/Black",
       "adult_belt": "Purple/Black",
-      "technique_right": "Hip Toss  Knife hand block with left hand, grab wrist, reverse punch to body, underhook further arm behind back, step behind, hips under, toss",
-      "technique_left": "Hip Toss  Block with right hand, grab wrist, reverse punch to body, underhook further arm behind back, step behind, hips under, toss",
+      "technique_right": "Hip Toss:   Knife hand block with left hand, grab wrist, reverse punch to body, underhook right arm behind back pin other arm against your chest, step behind, hips under, toss",
+      "technique_left": "Hip Toss:  Knige hand block with right hand, grab wrist, reverse punch to body, underhook left arm behind back pin other arm against your chest, step behind, hips under, toss",
       "video_time": "2:34",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=154"
     },
@@ -602,8 +602,8 @@ export const takedowns: Takedown[] = [
       "id": 11,
       "child_belt": "Purple/Black",
       "adult_belt": "Purple/Black",
-      "technique_right": "Rousey Hip Toss Block with your left hand, strike to the stomach, step between the legs, underhook (right) behind back, pivot on hip, take down",
-      "technique_left": "Rousey Hip Toss Block with your right hand, strike to the stomach left, step between the legs, underhook (left) behind back, pivot on hip, take down",
+      "technique_right": "Rousey Hip Toss: (strikers left foot forward) Knife Hand Block with your left hand, strike to the stomach, step between the legs, underhook (right) behind back, pivot on hip, take down",
+      "technique_left": "Rousey Hip Toss: (strikers right foot forward) Knife Hand Block with your right hand, strike to the stomach left, step between the legs, underhook (left) behind back, pivot on hip, take down",
       "video_time": "2:52",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=172"
     },
@@ -611,8 +611,8 @@ export const takedowns: Takedown[] = [
       "id": 12,
       "child_belt": "Blue",
       "adult_belt": "Blue",
-      "technique_right": "Twist Takedown Knife hand press block (left), strike to the face (right), elbow strike (right), underhook with left arm, right arm behind the head, twist, take down, chop to the stomach",
-      "technique_left": "Twist Takedown Knife hand press block (right), strike to the face (left), elbow strike (left), underhook with right arm, left arm behind the head, twist, take down, chop to the stomach",
+      "technique_right": "Twist Takedown: Knife hand press block (left), strike to the face (right), elbow strike (right), underhook with left arm, right arm behind the head, twist, take down, chop to the stomach",
+      "technique_left": "Twist Takedown: Knife hand press block (right), strike to the face (left), elbow strike (left), underhook with right arm, left arm behind the head, twist, take down, chop to the stomach",
       "video_time": "3:15",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=195"
     },
@@ -620,8 +620,8 @@ export const takedowns: Takedown[] = [
       "id": 13,
       "child_belt": "Blue/Black",
       "adult_belt": "Blue/Black",
-      "technique_right": "Front Kick step forward (left), underhook (right),  grab partners wrist, step behind with right foot, take them down",
-      "technique_left": "Front Kick step forward (right), underhook (left),  grab partners wrist, step behind with right foot, take them down",
+      "technique_right": "Front Kick: step forward (left), underhook (right),  grab partners wrist, step behind with right foot, take them down",
+      "technique_left": "Front Kick: step forward (right), underhook (left),  grab partners wrist, step behind with right foot, take them down",
       "video_time": "3:34",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=214"
     },
@@ -629,8 +629,8 @@ export const takedowns: Takedown[] = [
       "id": 14,
       "child_belt": "Blue/Black",
       "adult_belt": "Blue/Black",
-      "technique_right": "Spin Hook Kick step to the left, underhook (right), grab partners right arm, feet together, sweep out back leg",
-      "technique_left": "Spin Hook Kick step to the right, underhook (left), grab partners left arm, feet together, sweep out back leg",
+      "technique_right": "Spin Hook Kick: step to the left blocking high and underhook (right), grab partners right arm, feet together, sweep out back leg",
+      "technique_left": "Spin Hook Kick: step to the right blocking high and underhook (left), grab partners left arm, feet together, sweep out back leg",
       "video_time": "3:47",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=227"
     },
@@ -638,8 +638,8 @@ export const takedowns: Takedown[] = [
       "id": 15,
       "child_belt": "Green",
       "adult_belt": "Green",
-      "technique_right": "Universal #1  Universal strike (right), arm goes up (right), bottom fist to groin (left), pivot, ridge hand (left), choke ",
-      "technique_left": "Universal #1  Universal strike (left), arm goes up (left), bottom fist to groin (right), pivot, ridge hand (right), choke ",
+      "technique_right": "Universal #1:  Universal (push block left) strike (right), arm goes up (right), bottom fist to groin (left), pivot, ridge hand (left), choke ",
+      "technique_left": "Universal #1:  Universal (push block right) strike (left), arm goes up (left), bottom fist to groin (right), pivot, ridge hand (right), choke ",
       "video_time": "4:00",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=240"
     },
@@ -647,8 +647,8 @@ export const takedowns: Takedown[] = [
       "id": 16,
       "child_belt": "Green",
       "adult_belt": "Green",
-      "technique_right": "Universal #2  Universal strike (right), arm goes up (right), koken (left), step up, grab on to shoulder, left leg push down behind knee, rear naked choke",
-      "technique_left": "Universal #2  Universal strike (left), arm goes up (left), koken (right), step up, grab on to shoulder, right leg push down behind knee, rear naked choke",
+      "technique_right": "Universal #2:  Universal {push block left) strike (right), arm goes up (right), koken (left), step up, grab on to shoulder, left leg push down behind knee, rear naked choke",
+      "technique_left": "Universal #2:  Universal (push block right) strike (left), arm goes up (left), koken (right), step up, grab on to shoulder, right leg push down behind knee, rear naked choke",
       "video_time": "4:16",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=256"
     },
@@ -656,8 +656,8 @@ export const takedowns: Takedown[] = [
       "id": 17,
       "child_belt": "Red",
       "adult_belt": "Red",
-      "technique_right": "Red Belt - Knife hand press block (left), grab wrist (left), reverse punch (right), underhook the arm (right), fold it over, wrist lock, take down",
-      "technique_left": "Red Belt - Knife hand press block (right), grab wrist (right), reverse punch (left), underhook the arm (left), fold it over, wrist lock, take down",
+      "technique_right": "Red Belt: Knife hand press block (left), grab wrist (left), reverse punch (right), underhook the arm (right), fold it over, wrist lock, take down",
+      "technique_left": "Red Belt: Knife hand press block (right), grab wrist (right), reverse punch (left), underhook the arm (left), fold it over, wrist lock, take down",
       "video_time": "4:34",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=274"
     },
@@ -665,8 +665,8 @@ export const takedowns: Takedown[] = [
       "id": 18,
       "child_belt": "Red/Black",
       "adult_belt": "Red/Black",
-      "technique_right": "Red/Black  Step forward (left), reverse high block (right), grab wrist (right), round house kick (right) land behind, inverted ridge hand (grab other wrist), fold it over, take down",
-      "technique_left": "Red/Black  Step forward (right), reverse high block (left), grab wrist (left), round house kick (left) land behind, inverted ridge hand (grab other wrist), fold it over, take down",
+      "technique_right": "Red/Black:  Step forward (left), reverse high block (right arm), grab wrist (right), round house kick (right) land behind, inverted ridge hand (grab other wrist), fold it over, take down",
+      "technique_left": "Red/Black:  Step forward (right), reverse high block (left arm), grab wrist (left), round house kick (left) land behind, inverted ridge hand (grab other wrist), fold it over, take down",
       "video_time": "4:49",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=289"
     },
@@ -674,8 +674,8 @@ export const takedowns: Takedown[] = [
       "id": 19,
       "child_belt": "Brown",
       "adult_belt": "Brown",
-      "technique_right": "Rear Naked Choke grab with both hands, elbow strike (left),  step back with right foot, take down",
-      "technique_left": "Rear Naked Choke grab with both hands, elbow strike (right),  step back with left foot, take down",
+      "technique_right": "Rear Naked Choke: Grab with both hands, elbow strike (left),  step back with right foot, take down",
+      "technique_left": "Rear Naked Choke: Grab with both hands, elbow strike (right),  step back with left foot, take down",
       "video_time": "5:06",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=306"
     },
@@ -683,8 +683,8 @@ export const takedowns: Takedown[] = [
       "id": 20,
       "child_belt": "Brown/Black and Above",
       "adult_belt": "Brown/Black and Above",
-      "technique_right": "Left Leg Roundhouse  Overhook with right arm, reverse punch to the body, overhook with your left arm, elbow strike, grab behind the head, take down",
-      "technique_left": "Right Leg Roundhouse  Overhook with left arm, reverse punch to the body (right), overhook with your right arm, elbow strike, grab behind the head, take down",
+      "technique_right": "Left Leg Roundhouse:  Overhook with right arm, reverse punch to the body (left), switch to an overhook with your left arm, elbow strike, grab behind the head, right knee to the ground, take down",
+      "technique_left": "Right Leg Roundhouse:  Overhook with left arm, reverse punch to the body (right), switch to an overhook with your right arm, elbow strike, grab behind the head, left kneed to the ground, take down",
       "video_time": "5:25",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=325"
     },
@@ -692,8 +692,8 @@ export const takedowns: Takedown[] = [
       "id": 21,
       "child_belt": "Brown/Black and Above",
       "adult_belt": "Brown/Black and Above",
-      "technique_right": "Ear Bop n' Drop arms go up, pop the ears, grab the head, knee to stomach, knee to head,  step forward with right foot, pivot around, right hand underhook behind head, right knee down, take down",
-      "technique_left": "Ear Bop n' Drop arms go up, pop the ears, grab the head, knee to stomach, knee to head,  step forward with left foot, pivot around, left hand underhook behind head, left knee down, take down",
+      "technique_right": "Ear Bop n' Drop: Arms go up to break hold, pop the ears, grab the head, knee to stomach, knee to head,  step forward with right foot, pivot around, right hand underhook behind head stepping to the left side, right knee down, take down",
+      "technique_left": "Ear Bop n' Drop: Arms go up, pop the ears, grab the head, knee to stomach, knee to head,  step forward with left foot, pivot around, left hand underhook behind head stepping to the right side, left knee down, take down",
       "video_time": "5:41",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=341"
     },
@@ -701,8 +701,8 @@ export const takedowns: Takedown[] = [
       "id": 22,
       "child_belt": "Brown/Black and Above",
       "adult_belt": "Brown/Black and Above",
-      "technique_right": "Knee Down, Hook Around  Level change, left knee hits the floor, right leg hooks around, left ear to the hip, drive through, land in side control",
-      "technique_left": "Knee Down, Hook Around  Level change, right knee hits the floor, left leg hooks around, left ear to the hip, drive through, land in side control",
+      "technique_right": "Knee Down, Hook Around:  Level change, left knee hits the floor, right leg hooks around, left ear to the hip, drive through, land in side control",
+      "technique_left": "Knee Down, Hook Around:  Level change, right knee hits the floor, left leg hooks around, left ear to the hip, drive through, land in side control",
       "video_time": "6:01",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=361"
     },
@@ -710,8 +710,8 @@ export const takedowns: Takedown[] = [
       "id": 23,
       "child_belt": "Brown/Black and Above",
       "adult_belt": "Brown/Black and Above",
-      "technique_right": "Scissor  right arm inner form block (right), overhook (right), elbow strike (left), hands on the floor, feet up around hips (left to front, right to back), twist backward, take down",
-      "technique_left": "Scissor  left arm inner form block, overhook (left), elbow strike (right), hands on the floor, feet up around hips (right to front, left to back), twist backward, take down",
+      "technique_right": "Scissor:  (Back stance)Right arm inner form block (right), overhook (right), elbow strike (left), hands on the floor, feet up around hips (left to front, right to back), twist backward, take down",
+      "technique_left": "Scissor:  (Back stance) Left arm inner form block, overhook (left), elbow strike (right), hands on the floor, feet up around hips (right to front, left to back), twist backward, take down",
       "video_time": "6:17",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=377"
     },
@@ -719,8 +719,8 @@ export const takedowns: Takedown[] = [
       "id": 24,
       "child_belt": "Brown/Black and Above",
       "adult_belt": "Brown/Black and Above",
-      "technique_right": "Advanced Twist  left hand iron palm, swing underneath for underhook, strike (right), hand behind head (right), knee, knee, twist, chop",
-      "technique_left": "Advanced Twist  right hand iron palm, swing underneath for underhook, strike (left), hand behind head (left), knee, knee, twist, chop",
+      "technique_right": "Advanced Twist:  Left hand iron palm, swing underneath for underhook grabbing bicep, strike (right), hand behind head (right), knee, knee, twist, chop",
+      "technique_left": "Advanced Twist:  Right hand iron palm, swing underneath for underhook grabbing bicep, strike (left), hand behind head (left), knee, knee, twist, chop",
       "video_time": "6:33",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=393"
     },
@@ -728,8 +728,8 @@ export const takedowns: Takedown[] = [
       "id": 25,
       "child_belt": "Brown/Black and Above",
       "adult_belt": "Brown/Black and Above",
-      "technique_right": "Dragon Tail  universal strike, arm goes up, koken, go down to your left knee, sweep around (right), take down",
-      "technique_left": "Dragon Tail  universal strike (left), arm goes up (left), koken (right), go down to your right knee, sweep around (left), take down",
+      "technique_right": "Dragon Tail:  Universal (push block left) strike, arm goes up, koken stepping to the side, go down to your left knee, sweep around (right), take down",
+      "technique_left": "Dragon Tail:  Universal (push block right) strike (left), arm goes up (left), koken (right) stepping to the side, go down to your right knee, sweep around (left), take down",
       "video_time": "6:53",
       "video_url": "https://youtu.be/D7BNyHLJyng?t=413"
     },
@@ -996,3 +996,4 @@ export const testingData: TestingData = {
         { child_belt: "1st Degree", adult_belt: "", testing_for: "", break_technique: "Black + 2 2x2's" }
     ]
 };
+

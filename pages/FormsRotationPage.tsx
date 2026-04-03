@@ -123,7 +123,8 @@ const FormCard: React.FC<{ form: Form; formIndex: number; rotationSlug: string; 
                     {form.steps.length > 0 ? (
                          <ol className="list-decimal pl-5 space-y-2">
                             {form.steps.map((step, index) => (
-                                 <li key={index} dangerouslySetInnerHTML={{ __html: step }} />
+								
+								<li key={index} dangerouslySetInnerHTML={{ __html: step }} />
                             ))}
                         </ol>
                     ) : (

@@ -504,9 +504,58 @@ export const rotations: Rotation[] = [
           ]
         }
       ]
-    }
-];
-
+    },
+	{
+      "id": 5,
+      "name": "Weapons Forms",
+      "slug": "rotation-weapons",
+      "months": "Weapons Forms",
+      "forms": [
+        {
+          "belt": "Nunchuck Videos",
+          "name": "Nunchuck Videos",
+          "video_url": "",
+          "card_url": "",
+          "steps": [
+			"Training Video: https://youtu.be/MAUaBFdKpKg",
+			"Int/Adv: https://drive.google.com/file/d/1oQq6cHCVoas5_xiBpazSG1Zdx7bRdH0K/view?usp=drivesdk",
+			"AC/DC Intermediate Pt1: https://youtu.be/9j19ecmlfew?",
+			"AC/DC Intermediate Pt2: https://youtu.be/9j19ecmlfew?t=368",
+			"*AC/DC Advanced Pt1: https://drive.google.com/file/d/1BJRfyCUo08As5x3BVmR6mKD4AcD494rf/view?usp=sharing",
+			"AC/DC Advanced Pt2: https://youtu.be/klLMGxU1epo",
+			"Intermediate Tournament Form (Slow/Fast): https://drive.google.com/file/d/1MVr4JdXmy50bgajFj9eUPlootmifknvl/view?usp=sharing",
+			"Intermediate Tournament Form (Full Speed): https://drive.google.com/file/d/1GFFslvaLYDI2caPJ8tGRPzgQa8bsYWPV/view?usp=sharing",
+			"*: AC/DC Advanced Pt1&2 are approved for Black Belt testing as a combined form"
+			
+          ]
+        },
+		{
+          "belt": "Bo Staff",
+          "name": "Bo Staff Videos",
+          "video_url": "",
+          "card_url": "",
+          "steps": [
+			"*Advanced Bo Staff Pt1: https://youtu.be/NRDtbH6rsf0",
+			"Advaced Bo Staff Pt2: https://drive.google.com/file/d/1WnnbzAQNvbviGWOK4Ffl8myQyxk9ZBPf/view?usp=sharing",
+			"*Bo Staff Demo: https://www.youtube.com/watch?v=87wjkGcNkzk",
+			"*: Advanced Bo Staff Pt1&2 as a combined form or Bo Staff Demo are approved for Black Belt Testing"
+			
+          ]
+        },
+		{
+          "belt": "Kama",
+          "name": "Kama Video",
+          "video_url": "",
+          "card_url": "",
+          "steps": [
+			"*Kama Form: https://www.youtube.com/watch?v=B1GvA1PNXf8",
+			"*: Kama Form is approved for Black Belt testing."
+			
+          ]
+        }
+	]
+	}
+]
 export const takedowns: Takedown[] = [
     {
       "id": 1,
@@ -975,25 +1024,63 @@ export const testingData: TestingData = {
 		{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
 		{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
 ],
-    board_breaks: [
-        { child_belt: "White", adult_belt: "White", testing_for: "Yellow", break_technique: "Bottom Fist" },
-        { child_belt: "Yellow", adult_belt: "Yellow", testing_for: "Orange", break_technique: "Axe Kick" },
-        { child_belt: "Yellow/Black", adult_belt: "", testing_for: "", break_technique: "Elbow" },
-        { child_belt: "Orange", adult_belt: "", testing_for: "", break_technique: "Step Through Side Kick" },
-        { child_belt: "Orange/Black", adult_belt: "Orange", testing_for: "Purple", break_technique: "Flying Side Kick" },
-        { child_belt: "Purple", adult_belt: "", testing_for: "", break_technique: "Spin Side Kick" },
-        { child_belt: "Purple/Black", adult_belt: "Purple", testing_for: "Blue", break_technique: "Jumping Spin Side Kick" },
-        { child_belt: "Blue", adult_belt: "", testing_for: "", break_technique: "Spin Hook Kick" },
-        { child_belt: "Blue/Black", adult_belt: "Blue", testing_for: "Green", break_technique: "Jump Spin Hook Kick" },
-        { child_belt: "Green", adult_belt: "Green", testing_for: "Green/Black", break_technique: "Palm Heel Strike" },
-        { child_belt: "Green/Black", adult_belt: "Green/ Black", testing_for: "Red", break_technique: "Scisser Front Kick" },
-        { child_belt: "Red", adult_belt: "Red", testing_for: "Red/Black", break_technique: "Pop Front Kick" },
-        { child_belt: "Red/Black", adult_belt: "Red/Black", testing_for: "Brown", break_technique: "Straight Punch" },
-        { child_belt: "Brown", adult_belt: "Brown", testing_for: "Brown/Black", break_technique: "540 Hook" },
-        { child_belt: "Brown/Black", adult_belt: "Brown/ Black", testing_for: "Black/White", break_technique: "540 Side" },
-        { child_belt: "Black/White & Higher", adult_belt: "Black/White & Higher", testing_for: "", break_technique: "Any Jump Spin Kick" },
-        { child_belt: "Black", adult_belt: "", testing_for: "", break_technique: "540 Hook, 540 Side, Choice, Bottle" },
-        { child_belt: "1st Degree", adult_belt: "", testing_for: "", break_technique: "Black + 2 2x2's" }
+    board_breaks_adult: [
+        { adult_belt: "White", testing_for: "Yellow", break_technique: "Bottom Fist" },
+        { adult_belt: "Yellow", testing_for: "Orange", break_technique: "Axe Kick" },
+        { adult_belt: "Orange", testing_for: "Purple", break_technique: "Flying Side Kick" },
+        { adult_belt: "Purple", testing_for: "Blue", break_technique: "Jumping Spin Side Kick" },
+        { adult_belt: "Blue", testing_for: "Green", break_technique: "Jump Spin Hook Kick" },
+        { adult_belt: "Green", testing_for: "Green/Black", break_technique: "Palm Heel Strike" },
+        { adult_belt: "Green/Black", testing_for: "Red", break_technique: "Scisser Front Kick" },
+        { adult_belt: "Red", testing_for: "Red/Black", break_technique: "Pop Front Kick" },
+        { adult_belt: "Red/Black", testing_for: "Brown", break_technique: "Straight Punch" },
+        { adult_belt: "Brown", testing_for: "Brown/Black", break_technique: "540 Hook" },
+        { adult_belt: "Brown/Black", testing_for: "Black/White", break_technique: "540 Side" },
+        { adult_belt: "Black/White", testing_for: "Black/Brown", break_technique: "Any Jump Spin Kick" },
+		{ adult_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
+        { adult_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice, Bottle" },
+		{ adult_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
+        { adult_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
+    ],
+    board_breaks_teen: [
+        { teen_belt: "White", testing_for: "Yellow", break_technique: "Bottom Fist" },
+        { teen_belt: "Yellow", testing_for: "Orange", break_technique: "Axe Kick" },
+        { teen_belt: "Orange", testing_for: "Purple", break_technique: "Flying Side Kick" },
+        { teen_belt: "Purple", testing_for: "Blue", break_technique: "Jumping Spin Side Kick" },
+        { teen_belt: "Blue", testing_for: "Green", break_technique: "Jump Spin Hook Kick" },
+        { teen_belt: "Green", testing_for: "Green/Black", break_technique: "Palm Heel Strike" },
+        { teen_belt: "Green/Black", testing_for: "Red", break_technique: "Scisser Front Kick" },
+        { teen_belt: "Red", testing_for: "Red/Black", break_technique: "Pop Front Kick" },
+        { teen_belt: "Red/Black", testing_for: "Brown", break_technique: "Straight Punch" },
+        { teen_belt: "Brown", testing_for: "Brown/Black", break_technique: "540 Hook" },
+        { teen_belt: "Brown/Black", testing_for: "Black/White", break_technique: "540 Side" },
+        { teen_belt: "Black/White & Higher", testing_for: "", break_technique: "Any Jump Spin Kick" },
+		{ teen_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
+        { teen_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice, Bottle" },
+		{ teen_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
+        { teen_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
+    ],
+	board_breaks: [
+        { child_belt: "White", testing_for: "Yellow", break_technique: "Bottom Fist" },
+        { child_belt: "Yellow",  testing_for: "Yellow/Black", break_technique: "Axe Kick" },
+        { child_belt: "Yellow/Black",  testing_for: "Orange", break_technique: "Elbow" },
+        { child_belt: "Orange",  testing_for: "Orange/Black", break_technique: "Step Through Side Kick" },
+        { child_belt: "Orange/Black", testing_for: "Purple", break_technique: "Flying Side Kick" },
+        { child_belt: "Purple",  testing_for: "Purple/Black", break_technique: "Spin Side Kick" },
+        { child_belt: "Purple/Black",  testing_for: "Blue", break_technique: "Jumping Spin Side Kick" },
+        { child_belt: "Blue",  testing_for: "Blue/Black", break_technique: "Spin Hook Kick" },
+        { child_belt: "Blue/Black",  testing_for: "Green", break_technique: "Jump Spin Hook Kick" },
+        { child_belt: "Green",  testing_for: "Green/Black", break_technique: "Palm Heel Strike" },
+        { child_belt: "Green/Black",  testing_for: "Red", break_technique: "Scisser Front Kick" },
+        { child_belt: "Red",  testing_for: "Red/Black", break_technique: "Pop Front Kick" },
+        { child_belt: "Red/Black", testing_for: "Brown", break_technique: "Straight Punch" },
+        { child_belt: "Brown",  testing_for: "Brown/Black", break_technique: "540 Hook" },
+        { child_belt: "Brown/Black",  testing_for: "Black/White", break_technique: "540 Side" },
+        { child_belt: "Black/White & Higher",  testing_for: "", break_technique: "Any Jump Spin Kick" },
+		{ child_belt: "Black/Brown",  testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
+		{ child_belt: "Half/Half",  testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice, Bottle" },
+        { child_belt: "Black",  testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
+        { child_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
     ]
 };
 

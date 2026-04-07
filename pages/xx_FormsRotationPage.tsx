@@ -26,49 +26,8 @@ const PlusIcon: React.FC = () => (
     </svg>
 );
 
-/**
- * Splits a step string on any URLs (http/https) and returns a React node
- * where each URL is rendered as a clickable anchor tag.
- * Plain text steps with no URLs are returned as-is with no extra wrapping.
- */
-const renderStepContent = (step: string): React.ReactNode => {
-    const urlPattern = /(https?:\/\/[^\s]+)/g;
 
-    if (!urlPattern.test(step)) {
-        return step;
-    }
-
-    const parts = step.split(/(https?:\/\/[^\s]+)/g);
-
-    return (
-        <>
-            {parts.map((part, i) =>
-                /^https?:\/\//.test(part) ? (
-                    <a
-                        key={i}
-                        href={part}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 underline hover:text-blue-800 break-all"
-                    >
-                        {part}
-                    </a>
-                ) : (
-                    <React.Fragment key={i}>{part}</React.Fragment>
-                )
-            )}
-        </>
-    );
-};
-
-
-const FormCard: React.FC<{
-    form: Form;
-    formIndex: number;
-    rotationSlug: string;
-    onSave: () => void;
-    onRequestAuth: (callback: () => void) => void;
-}> = ({ form, formIndex, rotationSlug, onSave, onRequestAuth }) => {
+const FormCard: React.FC<{ form: Form; formIndex: number; rotationSlug: string; onSave: () => void, onRequestAuth: (callback: () => void) => void }> = ({ form, formIndex, rotationSlug, onSave, onRequestAuth }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedForm, setEditedForm] = useState<Form>(() => JSON.parse(JSON.stringify(form)));
     const { isAuthenticated } = useAuth();
@@ -87,7 +46,7 @@ const FormCard: React.FC<{
 
     const handleSave = () => {
         const stepsAsString = (Array.isArray(editedForm.steps) ? editedForm.steps.join('\n') : editedForm.steps) as string;
-
+        
         const updatedFormWithArraySteps = {
             ...editedForm,
             steps: stepsAsString.split('\n').filter(step => step.trim() !== ''),
@@ -100,7 +59,7 @@ const FormCard: React.FC<{
             alert("Failed to save form.");
         }
     };
-
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setEditedForm(prev => ({ ...prev, [name]: value }));
@@ -115,7 +74,7 @@ const FormCard: React.FC<{
                         <label htmlFor={`name-${formIndex}`} className="block text-sm font-medium text-ew-text-secondary">Form Name</label>
                         <input type="text" name="name" id={`name-${formIndex}`} value={editedForm.name} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2" />
                     </div>
-                    <div>
+                     <div>
                         <label htmlFor={`card_url-${formIndex}`} className="block text-sm font-medium text-ew-text-secondary">Card Image URL</label>
                         <input type="text" name="card_url" id={`card_url-${formIndex}`} value={editedForm.card_url || ''} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2" />
                     </div>
@@ -125,14 +84,7 @@ const FormCard: React.FC<{
                     </div>
                     <div>
                         <label htmlFor={`steps-${formIndex}`} className="block text-sm font-medium text-ew-text-secondary">Steps (one per line)</label>
-                        <textarea
-                            name="steps"
-                            id={`steps-${formIndex}`}
-                            rows={10}
-                            value={Array.isArray(editedForm.steps) ? editedForm.steps.join('\n') : editedForm.steps}
-                            onChange={handleChange}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2 font-mono text-xs"
-                        />
+                        <textarea name="steps" id={`steps-${formIndex}`} rows={10} value={Array.isArray(editedForm.steps) ? editedForm.steps.join('\n') : editedForm.steps} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2 font-mono text-xs"></textarea>
                     </div>
                 </div>
                 <div className="mt-6 flex justify-end gap-4">
@@ -156,27 +108,23 @@ const FormCard: React.FC<{
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                         {form.video_url && (
-                            <a
-                                href={form.video_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-[#DC3545] text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C82333] transition-colors"
-                            >
+                            <a href={form.video_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#DC3545] text-white py-2 px-4 rounded-md font-semibold hover:bg-[#C82333] transition-colors">
                                 <YouTubeIcon />
                                 View on YouTube
                             </a>
                         )}
-                        <button onClick={handleEditClick} className="inline-flex items-center gap-2 bg-ew-gold text-ew-black py-2 px-4 rounded-md font-semibold hover:bg-ew-gold-dark transition-colors">
-                            <EditIcon />
+                         <button onClick={handleEditClick} className="inline-flex items-center gap-2 bg-ew-gold text-ew-black py-2 px-4 rounded-md font-semibold hover:bg-ew-gold-dark transition-colors">
+                           <EditIcon />
                             Edit
                         </button>
                     </div>
                 </header>
                 <div className="prose max-w-none">
                     {form.steps.length > 0 ? (
-                        <ol className="list-decimal pl-5 space-y-2">
+                         <ol className="list-decimal pl-5 space-y-2">
                             {form.steps.map((step, index) => (
-                                <li key={index}>{renderStepContent(step)}</li>
+								
+								<li key={index} dangerouslySetInnerHTML={{ __html: step }} />
                             ))}
                         </ol>
                     ) : (
@@ -187,7 +135,6 @@ const FormCard: React.FC<{
         </article>
     );
 };
-
 
 const NewFormEditor: React.FC<{
     onSave: (form: Form) => void;
@@ -222,7 +169,7 @@ const NewFormEditor: React.FC<{
         <article className="bg-white rounded-lg border-2 border-ew-gold-dark shadow-lg overflow-hidden p-6 md:p-8 mt-8">
             <h3 className="text-2xl font-bold font-heading mb-4">Add New Form</h3>
             <div className="space-y-4">
-                <div>
+                 <div>
                     <label htmlFor="new-belt" className="block text-sm font-medium text-ew-text-secondary">Belt</label>
                     <input type="text" name="belt" id="new-belt" value={newForm.belt} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2" />
                 </div>
@@ -230,7 +177,7 @@ const NewFormEditor: React.FC<{
                     <label htmlFor="new-name" className="block text-sm font-medium text-ew-text-secondary">Form Name</label>
                     <input type="text" name="name" id="new-name" value={newForm.name} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2" />
                 </div>
-                <div>
+                 <div>
                     <label htmlFor="new-card_url" className="block text-sm font-medium text-ew-text-secondary">Card Image URL</label>
                     <input type="text" name="card_url" id="new-card_url" value={newForm.card_url} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2" />
                 </div>
@@ -240,14 +187,7 @@ const NewFormEditor: React.FC<{
                 </div>
                 <div>
                     <label htmlFor="new-steps" className="block text-sm font-medium text-ew-text-secondary">Steps (one per line)</label>
-                    <textarea
-                        name="steps"
-                        id="new-steps"
-                        rows={10}
-                        value={newForm.steps}
-                        onChange={handleChange}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2 font-mono text-xs"
-                    />
+                    <textarea name="steps" id="new-steps" rows={10} value={newForm.steps} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-ew-gold focus:ring-ew-gold sm:text-sm p-2 font-mono text-xs"></textarea>
                 </div>
             </div>
             <div className="mt-6 flex justify-end gap-4">
@@ -263,10 +203,7 @@ const FormsRotationPage: React.FC = () => {
     const { rotationSlug } = useParams<{ rotationSlug: string }>();
     const [forceUpdateKey, forceUpdate] = React.useReducer((x) => x + 1, 0);
     const [isAdding, setIsAdding] = useState(false);
-    const [authModalState, setAuthModalState] = useState<{ isOpen: boolean; onSuccess: () => void }>({
-        isOpen: false,
-        onSuccess: () => {},
-    });
+    const [authModalState, setAuthModalState] = useState<{ isOpen: boolean; onSuccess: () => void }>({ isOpen: false, onSuccess: () => {} });
     const { isAuthenticated } = useAuth();
 
     const allRotations = getRotations();
@@ -288,7 +225,7 @@ const FormsRotationPage: React.FC = () => {
             handleRequestAuth(() => setIsAdding(true));
         }
     };
-
+    
     if (!rotation) {
         return (
             <div className="container mx-auto px-4 py-12 text-center">
@@ -312,7 +249,7 @@ const FormsRotationPage: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-            <AuthModal
+            <AuthModal 
                 isOpen={authModalState.isOpen}
                 onClose={() => setAuthModalState({ isOpen: false, onSuccess: () => {} })}
                 onSuccess={handleSuccessfulLogin}
@@ -329,16 +266,7 @@ const FormsRotationPage: React.FC = () => {
 
             <div className="space-y-8">
                 {rotation.forms.length > 0 ? (
-                    rotation.forms.map((form, index) => (
-                        <FormCard
-                            key={`${form.name}-${index}-${forceUpdateKey}`}
-                            form={form}
-                            formIndex={index}
-                            rotationSlug={rotation.slug}
-                            onSave={forceUpdate}
-                            onRequestAuth={handleRequestAuth}
-                        />
-                    ))
+                    rotation.forms.map((form, index) => <FormCard key={`${form.name}-${index}-${forceUpdateKey}`} form={form} formIndex={index} rotationSlug={rotation.slug} onSave={forceUpdate} onRequestAuth={handleRequestAuth} />)
                 ) : (
                     <div className="bg-white p-8 rounded-lg border-2 border-ew-border shadow-md text-center">
                         <h2 className="text-2xl font-bold font-heading">No Forms Yet</h2>
@@ -349,10 +277,9 @@ const FormsRotationPage: React.FC = () => {
 
             <div className="mt-12 text-center">
                 {!isAdding ? (
-                    <button
+                    <button 
                         onClick={handleAddClick}
-                        className="inline-flex items-center gap-2 bg-ew-gold text-ew-black py-3 px-6 rounded-md font-semibold hover:bg-ew-gold-dark transition-colors shadow-lg text-lg"
-                    >
+                        className="inline-flex items-center gap-2 bg-ew-gold text-ew-black py-3 px-6 rounded-md font-semibold hover:bg-ew-gold-dark transition-colors shadow-lg text-lg">
                         <PlusIcon />
                         Add New Form
                     </button>
@@ -360,6 +287,7 @@ const FormsRotationPage: React.FC = () => {
                     <NewFormEditor onSave={handleAddNewForm} onCancel={() => setIsAdding(false)} />
                 )}
             </div>
+
         </div>
     );
 };

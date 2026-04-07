@@ -4,7 +4,7 @@ import { rotations, takedowns, onesteps, testingData, breakaways, weaponDefenses
 
 const CURRICULUM_STORAGE_KEY = 'ewmma_curriculum';
 const WELCOME_MESSAGE_STORAGE_KEY = 'ewmma_welcome_message';
-const CURRICULUM_VERSION = '1.311'; // BUMP THIS to trigger a refresh for everyone
+const CURRICULUM_VERSION = '1.33'; // BUMP THIS to trigger a refresh for everyone
 const VERSION_KEY = 'ewmma_curriculum_version';
 
 

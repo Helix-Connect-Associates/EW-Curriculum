@@ -1038,7 +1038,7 @@ export const testingData: TestingData = {
         { adult_belt: "Brown/Black", testing_for: "Black/White", break_technique: "540 Side" },
         { adult_belt: "Black/White", testing_for: "Black/Brown", break_technique: "Any Jump Spin Kick" },
 		{ adult_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
-        { adult_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice, Bottle" },
+        { adult_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
 		{ adult_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
         { adult_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
     ],
@@ -1056,7 +1056,7 @@ export const testingData: TestingData = {
         { teen_belt: "Brown/Black", testing_for: "Black/White", break_technique: "540 Side" },
         { teen_belt: "Black/White & Higher", testing_for: "", break_technique: "Any Jump Spin Kick" },
 		{ teen_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
-        { teen_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice, Bottle" },
+        { teen_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
 		{ teen_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
         { teen_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
     ],
@@ -1078,9 +1078,14 @@ export const testingData: TestingData = {
         { child_belt: "Brown/Black",  testing_for: "Black/White", break_technique: "540 Side" },
         { child_belt: "Black/White & Higher",  testing_for: "", break_technique: "Any Jump Spin Kick" },
 		{ child_belt: "Black/Brown",  testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
-		{ child_belt: "Half/Half",  testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice, Bottle" },
+		{ child_belt: "Half/Half",  testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
         { child_belt: "Black",  testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
         { child_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
-    ]
+    ],
+	board_breaks_black: [
+        { black_belt: "Half/Half",  testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
+        { black_belt: "Black",  testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
+        { black_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
+	]
 };
 

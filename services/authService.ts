@@ -15,7 +15,8 @@ try {
 
 // If an environment variable is provided, we use it. 
 // Otherwise, we use the hash of the default password "#BB2025#APP".
-const ADMIN_PASSPHRASE_HASH = envHash || "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8";
+//const ADMIN_PASSPHRASE_HASH = envHash || "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8";
+const ADMIN_PASSPHRASE_HASH = envHash || "6f9ba41cf3dedde6e7574636464baf04f1889b517ddaa19ba08bcb2923209ff5";
 
 // Flag to determine if we are running in a "Custom Security" mode (Production with Env Var)
 const IS_CUSTOM_SECURITY_MODE = !!envHash;

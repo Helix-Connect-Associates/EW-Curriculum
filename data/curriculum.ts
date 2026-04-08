@@ -933,12 +933,12 @@ export const onesteps: OneStep[] = [
 ];
 
 export const breakaways: Breakaway[] = [
-    { id: 1, category: 'Breakaway', grab: 'Straight Grab', technique: 'Step Forward (right), Thumb Up, Make a Fist, Straight Up', video_url: 'https://youtu.be/iEOygtRUHqw?t=5', video_time: ':05' },
-    { id: 2, category: 'Breakaway', grab: 'Top Grab', technique: 'Step in (right), Step Around (left), pull aside with thumb', video_url: 'https://youtu.be/iEOygtRUHqw?t=19', video_time: ':19' },
+	{ id: 1, category: 'Breakaway', grab: 'Straight Grab', technique: 'Step Forward (right), Thumb Up, Make a Fist, Straight Up', video_url: 'https://youtu.be/iEOygtRUHqw?t=5', video_time: ':05' },
+	{ id: 2, category: 'Breakaway', grab: 'Top Grab', technique: 'Step in (right), Step Around (left), pull aside with thumb', video_url: 'https://youtu.be/iEOygtRUHqw?t=19', video_time: ':19' },
 	{ id: 3, category: 'Breakaway', grab: 'Cross Grab', technique: 'Circle hand over top, grab wrist, pull across body.', video_url: 'https://youtu.be/iEOygtRUHqw?t=34', video_time: ':34' },
-    { id: 4, category: 'Breakaway', grab: 'Cross Grab', technique: 'Cricle, Grab Wrist, Twist, Hand on Shoulder\\Elbow, Push to Floor.', video_url: 'https://youtu.be/iEOygtRUHqw?t=52', video_time: ':52' },
+	{ id: 4, category: 'Breakaway', grab: 'Cross Grab', technique: 'Cricle, Grab Wrist, Twist, Hand on Shoulder\\Elbow, Push to Floor.', video_url: 'https://youtu.be/iEOygtRUHqw?t=52', video_time: ':52' },
 	{ id: 1, category: 'Escape', grab: 'Bear Hug #1 - Over Arms', technique: 'Clap, push, elbow, elbow, side kick', video_url: '', video_time: '' },
-    { id: 2, category: 'Escape', grab: 'Bear Hug #2 - Under Arms', technique: 'Elbow strike, elbow strike, grab leg in between, pull up.', video_url: '', video_time: '' },
+	{ id: 2, category: 'Escape', grab: 'Bear Hug #2 - Under Arms', technique: 'Elbow strike, elbow strike, grab leg in between, pull up.', video_url: '', video_time: '' },
 	{ id: 3, category: 'Escape', grab: 'Bear Hug #3 - Over Arms', technique: 'step aside, strike to the groin, step behind with your right foot, arms to the front, grab the knees, lift up, take down.', video_url: '', video_time: '' },
 	{ id: 4, category: 'Escape', grab: 'Bear Hug #4 - Over Arms', technique: 'Figure 4 under arms, break lock, conver to kimura', video_url: '', video_time: '' },
 	{ id: 5, category: 'Escape', grab: 'Headlock #1', technique: 'Turn head into body, push out', video_url: 'https://youtu.be/6Qomuw8tQPU?t=3', video_time: ':03' },
@@ -951,15 +951,15 @@ export const breakaways: Breakaway[] = [
 ];
 
 export const weaponDefenses: WeaponDefense[] = [
-    { id: 1, weapon: 'Knife', strike: 'Cross Strike', defense: 'From Block-Left, Shoulder block-right, punch to the face, elbow to the head, knee, cross your arm over by the elbow, break the elbow to a Kimura.', finishing_move: 'Disarm and ground opponent', video_url: '', video_time: '' },
-    { id: 2, weapon: 'Knife', strike: 'Cross Strike', defense: 'From Block-Left, Shoulder block-right, punch to the face, elbow to the head, knee, cross your arm over by the elbow, figure 4 from right to left just above the elbow, thumb up, armbar.', finishing_move: 'Joint lock and disarm', video_url: '', video_time: '' },
-    { id: 3, weapon: 'Knife', strike: 'Underhand Attack ', defense: 'Cross hand block-right over left, place thumb on pressure point on hand, move toward your left, twist wrist to wrist lock to open up the shoulder, kick to the face.', finishing_move: '', video_url: '', video_time: '' },
-    { id: 4, weapon: 'Knife', strike: 'Low side strike', defense: 'Low block, slide hand around underneath to grip trapping elbow (knife should be trapped outside near your elbow), elbow strike,knee strike, grab toward the wrist, take away the knife.', finishing_move: 'Joint lock and disarm', video_url: '', video_time: '' },		
-    { id: 5, weapon: 'Knife', strike: 'Double Slash', defense: 'Step back then in, grab right hand on outside of wrist, left hand on outside of shoulder at the armpit, twist to bring them down to the ground.', finishing_move: '', video_url: '', video_time: '' },
-    { id: 6, weapon: 'Knife', strike: 'High Strike', defense: 'cross hand block above head right over left, step to the side stab in the leg .', finishing_move: 'Joint lock and disarm', video_url: '', video_time: '' },
-    { id: 7, weapon: 'Knife', strike: 'Cross Strike ', defense: 'Form Block-Left, Shoulder block-right, punch to the face, elbow to the head, knee, cross your arm over by the elbow, figure 4 from right to left just above the elbow, thumb up, armbar.', finishing_move: 'Straigh armbar to scissor sweep', video_url: '', video_time: '' },
-    { id: 8, weapon: 'Knife', strike: 'Advanced', defense: 'Double slash, step back then in, grab right hand on outside of wrist, bring left arm over inner elbow to figure four turn wrist over step behind take them down', finishing_move: '', video_url: '', video_time: '' },
-    { id: 1, weapon: 'Gun', strike: 'Frontal Threat', defense: 'Push aside away from body with left hand. push into there body in the stomach area. throw punches to disable. reach underneath gun pull out from hand .', finishing_move: '', video_url: '', video_time: '' }
+	{ id: 1, weapon: 'Knife', strike: 'Cross Strike', defense: 'From Block-Left, Shoulder block-right, punch to the face, elbow to the head, knee, cross your arm over by the elbow, break the elbow to a Kimura.', finishing_move: 'Disarm and ground opponent', video_url: '', video_time: '' },
+	{ id: 2, weapon: 'Knife', strike: 'Cross Strike', defense: 'From Block-Left, Shoulder block-right, punch to the face, elbow to the head, knee, cross your arm over by the elbow, figure 4 from right to left just above the elbow, thumb up, armbar.', finishing_move: 'Joint lock and disarm', video_url: '', video_time: '' },
+	{ id: 3, weapon: 'Knife', strike: 'Underhand Attack ', defense: 'Cross hand block-right over left, place thumb on pressure point on hand, move toward your left, twist wrist to wrist lock to open up the shoulder, kick to the face.', finishing_move: '', video_url: '', video_time: '' },
+	{ id: 4, weapon: 'Knife', strike: 'Low side strike', defense: 'Low block, slide hand around underneath to grip trapping elbow (knife should be trapped outside near your elbow), elbow strike,knee strike, grab toward the wrist, take away the knife.', finishing_move: 'Joint lock and disarm', video_url: '', video_time: '' },		
+	{ id: 5, weapon: 'Knife', strike: 'Double Slash', defense: 'Step back then in, grab right hand on outside of wrist, left hand on outside of shoulder at the armpit, twist to bring them down to the ground.', finishing_move: '', video_url: '', video_time: '' },
+	{ id: 6, weapon: 'Knife', strike: 'High Strike', defense: 'cross hand block above head right over left, step to the side stab in the leg .', finishing_move: 'Joint lock and disarm', video_url: '', video_time: '' },
+	{ id: 7, weapon: 'Knife', strike: 'Cross Strike ', defense: 'Form Block-Left, Shoulder block-right, punch to the face, elbow to the head, knee, cross your arm over by the elbow, figure 4 from right to left just above the elbow, thumb up, armbar.', finishing_move: 'Straigh armbar to scissor sweep', video_url: '', video_time: '' },
+ 	{ id: 8, weapon: 'Knife', strike: 'Advanced', defense: 'Double slash, step back then in, grab right hand on outside of wrist, bring left arm over inner elbow to figure four turn wrist over step behind take them down', finishing_move: '', video_url: '', video_time: '' },
+	{ id: 1, weapon: 'Gun', strike: 'Frontal Threat', defense: 'Push aside away from body with left hand. push into there body in the stomach area. throw punches to disable. reach underneath gun pull out from hand .', finishing_move: '', video_url: '', video_time: '' }
 ];
 
 export const testingData: TestingData = {
@@ -969,60 +969,60 @@ export const testingData: TestingData = {
 		{ level: "Beginner", rank: "Orange", testfor: "Purple", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "3", hours: "4" },
         { level: "Beginner", rank: "Purple", testfor: "Blue", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "4", hours: "4" },
         { level: "Intermediate", rank: "Blue", testfor: "Green", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "5", hours: "6" },
-		{ level: "Intermediate", rank: "Green", testfor: "Green Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
-		{ level: "Intermediate", rank: "Green Black", testfor: "Red", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
-		{ level: "Intermediate", rank: "Red", testfor: "Red Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "7", hours: "6" },
+	{ level: "Intermediate", rank: "Green", testfor: "Green Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
+	{ level: "Intermediate", rank: "Green Black", testfor: "Red", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
+	{ level: "Intermediate", rank: "Red", testfor: "Red Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "7", hours: "6" },
         { level: "Intermediate", rank: "Red Black", testfor: "Brown", form: "All", take_down: "Rear Naked Choke", one_step: "11", challenge: "100", sprint: "7", hours: "8" },
         { level: "Advanced", rank: "Brown", testfor: "Brown Black", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
         { level: "Advanced", rank: "Brown Black", testfor: "Black White", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
         { level: "Advanced", rank: "Black White", testfor: "Black Brown/Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-		{ level: "Black", rank: "Black Brown/Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
-		{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
-		{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
+	{ level: "Black", rank: "Black Brown/Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
+	{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
+	{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
 ],	
 	level_requirements_teen: [
         { level: "Beginner", rank: "White", testfor: "Yellow", form: "Element", take_down: "#1", one_step: "#1", challenge: "50", sprint: 1, hours: "4" },
         { level: "Beginner", rank: "Yellow", testfor: "Orange", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "2", hours: "4" },
-		{ level: "Beginner", rank: "Orange", testfor: "Purple", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "3", hours: "4" },
+	{ level: "Beginner", rank: "Orange", testfor: "Purple", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "3", hours: "4" },
         { level: "Beginner", rank: "Purple", testfor: "Blue", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "4", hours: "4" },
         { level: "Intermediate", rank: "Blue", testfor: "Green", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "5", hours: "6" },
-		{ level: "Intermediate", rank: "Green", testfor: "Green Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
-		{ level: "Intermediate", rank: "Green Black", testfor: "Red", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
-		{ level: "Intermediate", rank: "Red", testfor: "Red Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "7", hours: "6" },
+	{ level: "Intermediate", rank: "Green", testfor: "Green Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
+	{ level: "Intermediate", rank: "Green Black", testfor: "Red", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
+	{ level: "Intermediate", rank: "Red", testfor: "Red Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "7", hours: "6" },
         { level: "Intermediate", rank: "Red Black", testfor: "Brown", form: "All", take_down: "Rear Naked Choke", one_step: "11", challenge: "100", sprint: "7", hours: "8" },
         { level: "Advanced", rank: "Brown", testfor: "Brown Black", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
         { level: "Advanced", rank: "Brown Black", testfor: "Black White", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
         { level: "Advanced", rank: "Black White", testfor: "Black Green", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-		{ level: "Advanced", rank: "Black Green", testfor: "Black Red", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-		{ level: "Advanced", rank: "Black Red", testfor: "Black Brown", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-		{ level: "Advanced", rank: "Black Brown", testfor: "Black Brown/Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "10", hours: "26" },
-		{ level: "Black", rank: "Black Brown/Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
-		{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
-		{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
+	{ level: "Advanced", rank: "Black Green", testfor: "Black Red", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
+	{ level: "Advanced", rank: "Black Red", testfor: "Black Brown", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
+	{ level: "Advanced", rank: "Black Brown", testfor: "Black Brown/Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "10", hours: "26" },
+	{ level: "Black", rank: "Black Brown/Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
+	{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
+	{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
 ],
 
 
 	level_requirements_child6212: [
         { level: "Beginner", rank: "White", testfor: "Yellow", form: "Element", take_down: "#1", one_step: "#1", challenge: "25", sprint: 1, hours: "1" },
         { level: "Beginner", rank: "Yellow", testfor: "Yellow Black", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "2", hours: "4" },
-		{ level: "Beginner", rank: "Yellow Black", testfor: "Orange", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "2", hours: "4" },
-		{ level: "Beginner", rank: "Orange", testfor: "Purple", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "3", hours: "4" },
-		{ level: "Beginner", rank: "Orange Black", testfor: "Purple", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "3", hours: "4" },
+	{ level: "Beginner", rank: "Yellow Black", testfor: "Orange", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "2", hours: "4" },
+	{ level: "Beginner", rank: "Orange", testfor: "Purple", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "3", hours: "4" },
+	{ level: "Beginner", rank: "Orange Black", testfor: "Purple", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "3", hours: "4" },
         { level: "Beginner", rank: "Purple", testfor: "Purple Black", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "4", hours: "4" },
-		{ level: "Beginner", rank: "Purple Black", testfor: "Blue", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "4", hours: "4" },
+	{ level: "Beginner", rank: "Purple Black", testfor: "Blue", form: "Element", take_down: "Twist Take Down", one_step: "6", challenge: "50", sprint: "4", hours: "4" },
         { level: "Intermediate", rank: "Blue", testfor: "Blue Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "5", hours: "6" },
-		{ level: "Intermediate", rank: "Blue Black", testfor: "Green", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "5", hours: "6" },
-		{ level: "Intermediate", rank: "Green", testfor: "Green Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
-		{ level: "Intermediate", rank: "Green Black", testfor: "Red", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
-		{ level: "Intermediate", rank: "Red", testfor: "Red Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "7", hours: "6" },
+	{ level: "Intermediate", rank: "Blue Black", testfor: "Green", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "5", hours: "6" },
+	{ level: "Intermediate", rank: "Green", testfor: "Green Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
+	{ level: "Intermediate", rank: "Green Black", testfor: "Red", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "6", hours: "6" },
+	{ level: "Intermediate", rank: "Red", testfor: "Red Black", form: "Red Belt", take_down: "Red/Black", one_step: "11", challenge: "75", sprint: "7", hours: "6" },
         { level: "Intermediate", rank: "Red Black", testfor: "Brown", form: "All", take_down: "Rear Naked Choke", one_step: "11", challenge: "100", sprint: "7", hours: "8" },
         { level: "Advanced", rank: "Brown", testfor: "Brown Black", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
         { level: "Advanced", rank: "Brown Black", testfor: "Black White", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
         { level: "Advanced", rank: "Black White", testfor: "Black Stripes", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-		{ level: "Advanced", rank: "Black Brown", testfor: "Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-		{ level: "Black", rank: "Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
-		{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
-		{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
+	{ level: "Advanced", rank: "Black Brown", testfor: "Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
+	{ level: "Black", rank: "Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
+	{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
+	{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
 ],
     board_breaks_adult: [
         { adult_belt: "White", testing_for: "Yellow", break_technique: "Bottom Fist" },
@@ -1037,9 +1037,9 @@ export const testingData: TestingData = {
         { adult_belt: "Brown", testing_for: "Brown/Black", break_technique: "540 Hook" },
         { adult_belt: "Brown/Black", testing_for: "Black/White", break_technique: "540 Side" },
         { adult_belt: "Black/White", testing_for: "Black/Brown", break_technique: "Any Jump Spin Kick" },
-		{ adult_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
+	{ adult_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
         { adult_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
-		{ adult_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
+	{ adult_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
         { adult_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
     ],
     board_breaks_teen: [
@@ -1055,9 +1055,9 @@ export const testingData: TestingData = {
         { teen_belt: "Brown", testing_for: "Brown/Black", break_technique: "540 Hook" },
         { teen_belt: "Brown/Black", testing_for: "Black/White", break_technique: "540 Side" },
         { teen_belt: "Black/White & Higher", testing_for: "", break_technique: "Any Jump Spin Kick" },
-		{ teen_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
+	{ teen_belt: "Black/Brown", testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
         { teen_belt: "Half/Half", testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
-		{ teen_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
+	{ teen_belt: "Black", testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
         { teen_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
     ],
 	board_breaks: [
@@ -1077,8 +1077,8 @@ export const testingData: TestingData = {
         { child_belt: "Brown",  testing_for: "Brown/Black", break_technique: "540 Hook" },
         { child_belt: "Brown/Black",  testing_for: "Black/White", break_technique: "540 Side" },
         { child_belt: "Black/White & Higher",  testing_for: "", break_technique: "Any Jump Spin Kick" },
-		{ child_belt: "Black/Brown",  testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
-		{ child_belt: "Half/Half",  testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
+	{ child_belt: "Black/Brown",  testing_for: "Half/Half", break_technique: "Any Jump Spin Kick" },
+	{ child_belt: "Half/Half",  testing_for: "Black", break_technique: "540 Hook, 540 Side, Choice-Jump Spin, Bottle" },
         { child_belt: "Black",  testing_for: "1st Degree", break_technique: "Black + 2 2x2's" },
         { child_belt: "1st Degree", testing_for: "2nd Degree & Above", break_technique: "1st Degree + Sensei's Choice" }
     ],

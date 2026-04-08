@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { getTestingData } from '../services/curriculumService';
+import { getTestingData, resetCurriculumToDefault } from '../services/curriculumService';
 import Breadcrumb from '../components/Breadcrumb';
 
 const TestingRequirementsPage: React.FC = () => {
@@ -41,6 +41,7 @@ const TestingRequirementsPage: React.FC = () => {
 		{ name: 'Black/Brown', file: 'blackbrown.png' },
 		{ name: 'Half/Half', file: 'halfhalf.png' },
 		{ name: 'Black', file: 'black.png' }
+        // ... only child belts
     ],
     teen: [
         { name: 'White', file: 'white.png' },
@@ -58,6 +59,7 @@ const TestingRequirementsPage: React.FC = () => {
 		{ name: 'Black/Brown', file: 'blackbrown.png' },
 		{ name: 'Half/Half', file: 'halfhalf.png' },
 		{ name: 'Black', file: 'black.png' }
+        // ... only teen belts
     ],
     adult: [
         { name: 'White', file: 'white.png' },
@@ -75,12 +77,15 @@ const TestingRequirementsPage: React.FC = () => {
 		{ name: 'Black/Brown', file: 'blackbrown.png' },
 		{ name: 'Half/Half', file: 'halfhalf.png' },
 		{ name: 'Black', file: 'black.png' }
+        // ... only adult belts
     ],
 	Black: [
 	{ name: 'Black', file: 'black.png' }
+        
     ]
 	}; //Close Belt Config
 	const BeltRankings = ({ type }: { type: 'child' | 'teen' | 'adult'| 'Black' }) => {
+    // Get the specific list for this tab
     const belts = BELT_CONFIG[type];
 
     return (
@@ -102,6 +107,7 @@ const TestingRequirementsPage: React.FC = () => {
                                 src={`/assets/belts/${belt.file}`} 
                                 alt={`${belt.name} Belt`} 
                                 className="max-w-full max-h-full object-contain"
+                                // Safety: if the file is missing despite our config, hide it
                                 onError={(e) => (e.currentTarget.style.display = 'none')}
                             />
                         </div>
@@ -113,20 +119,36 @@ const TestingRequirementsPage: React.FC = () => {
             </div>
         </div>
     );
-	};
-
+};	//Collect Belt Images
+	//Clear local data link
     if (!data || (board_breaks.length === 0 && level_requirements_adult.length === 0)) {
         return (
             <div className="container mx-auto px-4 py-20 text-center">
-                <h2 className="text-2xl font-bold mb-4">Data Not Available</h2>
-                <p className="mb-6 text-ew-text-secondary">The curriculum data could not be loaded. Please try refreshing the page.</p>
+                <h2 className="text-2xl font-bold mb-4">Data Sync Required</h2>
+                <p className="mb-6 text-ew-text-secondary">It looks like your browser is holding onto an older version of the curriculum.</p>
+                <button 
+                    onClick={resetCurriculumToDefault}
+                    className="bg-ew-gold hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg transition-colors"
+                >
+                    Update & Refresh Curriculum
+                </button>
             </div>
         );
-    }
+    }//Close clear local data
 
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-            <Breadcrumb crumbs={[{ label: 'Home', path: '/' }, { label: 'Testing Requirements' }]} />
+            <div className="flex justify-between items-center mb-4">
+                <Breadcrumb crumbs={[{ label: 'Home', path: '/' }, { label: 'Testing Requirements' }]} />
+                {/* Admin/Debug Reset Button */}
+                <button 
+                    onClick={resetCurriculumToDefault}
+                    className="text-xs text-gray-400 hover:text-red-500 transition-colors underline"
+                    title="Clears local cache and reloads from source code"
+                >
+                    Reset Local Data
+                </button>
+            </div>
 
             <header className="my-8 text-center">
                 <h1 className="text-3xl md:text-5xl font-heading font-black">Testing Requirements</h1>
@@ -155,6 +177,8 @@ const TestingRequirementsPage: React.FC = () => {
 			<div className="animate-fadeIn">
 				<BeltRankings type="child" />
         
+				{/* Your existing Child Board Breaks Table */}
+            {/* Board Breaks Section */}
             <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold font-heading mb-6 pb-2 border-b-2 border-ew-gold">Board Breaks Age 6-12</h2>
                 <div className="overflow-x-auto shadow-md rounded-lg">
@@ -176,9 +200,11 @@ const TestingRequirementsPage: React.FC = () => {
                             ))}
                         </tbody>
                     </table>
-                </div>
+                </div>//close table class
             </section>
         
+				{/* Your existing Child Testing Requirements Table */}
+				           {/* Child 6-12 Section */}
             <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold font-heading mb-6 pb-2 border-b-2 border-ew-gold">Testing Requirements (6-12)</h2>
                 <div className="overflow-x-auto shadow-md rounded-lg">
@@ -212,15 +238,16 @@ const TestingRequirementsPage: React.FC = () => {
                             ))}
                         </tbody>
                     </table>
-                </div>
+                </div>//close table class
             </section>
-			</div>
+			</div>//close tab class
 		)}
 
 		{/* TEEN BELT SECTION */}
 		{activeTab === 'teen' && (
 			<div className="animate-fadeIn">
 				<BeltRankings type="teen" />
+				{/* Teen Board Breaks Section */}
             <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold font-heading mb-6 pb-2 border-b-2 border-ew-gold">Board Breaks Teen</h2>
                 <div className="overflow-x-auto shadow-md rounded-lg">
@@ -244,6 +271,7 @@ const TestingRequirementsPage: React.FC = () => {
                     </table>
                 </div>
             </section>
+			{/* Teens Section */}
             <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold font-heading mb-6 pb-2 border-b-2 border-ew-gold">Testing Requirements - Teen</h2>
                 <div className="overflow-x-auto shadow-md rounded-lg">
@@ -286,6 +314,7 @@ const TestingRequirementsPage: React.FC = () => {
 		{activeTab === 'adult' && (
 			<div className="animate-fadeIn">
 				<BeltRankings type="adult" />
+				{/* Adult Board Breaks Section */}
             <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold font-heading mb-6 pb-2 border-b-2 border-ew-gold">Board Breaks Adult</h2>
                 <div className="overflow-x-auto shadow-md rounded-lg">
@@ -310,6 +339,7 @@ const TestingRequirementsPage: React.FC = () => {
                 </div>
             </section>
 
+            {/* Adult Section */}
             <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold font-heading mb-6 pb-2 border-b-2 border-ew-gold">Testing Requirements - Adult</h2>
                 <div className="overflow-x-auto shadow-md rounded-lg">
@@ -347,47 +377,48 @@ const TestingRequirementsPage: React.FC = () => {
             </section>
 			</div>
 		)}
-
 		{/* BLACK BELT SECTION */}
 		{activeTab === 'Black' && (
 			<div className="animate-fadeIn">
 				<BeltRankings type="Black" />
+				{/* Black Belt Testing */}
             <section className="mb-16">
                 <h2 className="text-2xl md:text-3xl font-bold font-heading mb-6 pb-2 border-b-2 border-ew-gold">Black Belt Testing Requirements</h2>
 				<br></br>
-				<p>Black Belt Testing Dates: Rotation 3 testing (September) and occasionally Rotation 1 <i>(not guaranteed)</i></p>
+				<p>Black Belt Testing requirements: </p>
+				<p>Black Belt Testing Dates: Rotation 3 testing (September) and occassionally Rotation 1 <i>(not guaranteed)</i></p>
 				<br></br>
 				<p><b>Test Preparation</b></p>
 				<br></br>
-				<p>If you are a teenager and are willing to spend your entire summer preparing for the test, you can easily prepare for the test in three months by spending every day at the studio and spending several hours a day practicing. However, if you are an adult, tend to have a busy schedule or are planning on being on a family vacation, it is suggested that you spend the year leading up to your black belt test spending time every week on your preparation. By spending a few hours every week, you will be prepared for the test and will not have sacrificed everything else to prepare for it.</p>
+				<p>If you are a teenager and are willing to spend your entire summer preparing for the test, you can easily prepare for the test in three months by spending every day at the studio and spending several hours a day practicing.  However, if you are an adult,tend to have a busy schedule or are planning on being on a family vacation, it is suggested that you spend the year leading up to your black belt test spending time every week on your preparation.  By spending a few hours every week, you will be prepared for the test and will not have sacrificed everything else to prepare for it.</p>
 				<br></br>
-				<p>Understand that, if you do everything right and make no mistakes on your forms test, you should expect to run 12 miles during the 26 hours of your Black Belt test. Below is a suggested 1 year program for successful preparation for the test. If you follow this plan, you will not only be ready for the test but will also have shown everyone that you have prepared and dedicated yourself to it. This plan assumes you will be testing in September. If the plan is for you to test at another time, make the appropriate adjustments (start the plan 12 months before your planned test date).</p>
+				<p>Understand that, if you do everything right and make no mistakes on your forms test, you should expect to run 12 miles during the 26 hours of your Black Belt test.  Below is a suggested 1 year program for successful preparation for the test.  If you follow this plan, you will not only be ready for the test but will also have shown everyone that you have prepared and dedicated yourself to it. This plan assumes you will be testing in September.  If the plan is for you to test at another time, make the appropriate adjustments (start the plan 12 months before your planned test date).</p>
 				<br></br>
 				<br></br>
 				<p><b>Rotation 4</b> <i>(Immediately after the September test)</i></p>
-				<p>Master all of the forms of rotation 4. Aim for zero mistakes during December testing.</p>
+				<p>Master all of the forms of rotation 4.  Aim for zero mistakes during December testing.</p>
 				<br></br>
 				<p>Run 1 mile 3 times per week for the first two months and then make one of them two miles.</p>
 				<br></br>
 				<p><b>Rotation 1</b></p>
-				<p>Continue to practice rotation 4 forms. Master all of the forms for rotation 1. Again aim for zero mistakes during the forms testing. At some point during the rotation, ask a Black Belt to test you on rotation 4 and rotation 1 to make sure that you are on track with your forms. <b>Seek Help if you are Struggling</b></p>
+				<p>Continue to practice rotation 4 forms.  Master all of the forms for rotation 1.  Again aim for zero mistakes during the forms testing.  At some point during the rotation, ask a Black Belt to test you on rotation 4 and rotation 1 to make sure that you are on track with your forms.  <b>Seek Help if you are Struggling</b></p>
 				<br></br>
-				<p>Run 2 miles two times per week and 1 mile for your third run. Focus on your time being under 10 minutes per mile (11 if you are a struggling runner).</p>
-				<p>Focus on your right side takedowns &amp; one-steps.</p>
+				<p>Run 2 miles two times per week and 1 mile for your third run.  Focus on your time being under 10 minutes per mile (11 if you are a struggling runner).</p>
+				<p>Focus on your right side takedowns & one-steps.</p>
 				<br></br>
 				<p><b>Rotation 2</b></p>
-				<p>Continue to practice rotation 4 and rotation 1. Master all of the forms for rotation 2. Again aim for zero mistakes during testing. Again, at some point during the rotation, ask a Black Belt to test you on 4, 1 &amp; 2.</p>
+				<p>Continue to practice rotation 4 and rotation 1.  Master all of the forms for rotation 2.  Again aimr for zero mistakest during testing.  Again, at some point during the rotation, ask a Black Belt to test you on 4,1 & 2.</p>
 				<br></br>
-				<p>Run 3 miles once per week and 2 miles the other two times. Feel free to run more if you feel that you need to. You may want to add one or two 5 mile runs during the month just to get used to the distance. Focus on maintaining your pace and trying to maintain under a 10 minute mile.</p>
+				<p>Run 3 miles once per week and 2 miles the other two times.  Feel free to run more if you feel that you need to.  You may want to add one or two 5 mile runs during the month just to get used to the distance.  Focus on maintaining your pace and trying to maintain under a 10 minute mile.</p>
 				<br></br>
-				<p>Start working on your one-steps &amp; takedowns on both sides plus self defense and knife defense. Start getting in some hard sparring rounds.</p>
+				<p>Start working on your one-steps & takedowns on both sides plus self defense and knife defense.  Start getting in some hard sparring rounds.</p>
 				<br></br>
 				<p><b>Rotation 3</b></p>
-				<p>This is it. This is the final push to the end. The make it or break it time for your Black Belt.</p>
+				<p>This is it.  This is the final push to the end.  The make it or break it time for your Black Belt.</p>
 				<br></br>
-				<p>Work on all four rotation forms ensuring that you make no mistakes on any of them. Mistakes mean miles on the test (You don't want them).</p>
+				<p>Work on all four rotation forms ensuring that you make no mistakes on any of them.  Mistakes mean miles on the test (You don't want them).</p>
 				<br></br>
-				<p>Run 3-5 miles two to three times per week. You want to make sure that you can run whatever distance they ask during testing and maintain a sub 10 minute per mile pace.</p>
+				<p>Run 3-5 miles two to three times per week.  You want to make sure that you can run whatever distance they ask during testing and maintain a sub 10 minute per mile pace.</p>
 			</section>
 			
 			<section className="mb-16">
@@ -414,9 +445,11 @@ const TestingRequirementsPage: React.FC = () => {
                 </div>
             </section>
 			</div>
-		)}
+		)};
 	</div>
 	)
 }
+
+
 
 export default TestingRequirementsPage;

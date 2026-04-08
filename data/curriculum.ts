@@ -198,7 +198,7 @@ export const rotations: Rotation[] = [
 		{
           "belt": "Advanced",
           "name": "Zombies",
-          "video_url": "https://youtu.be/KorPmXlowzM?t=98",
+          "video_url": "https://drive.google.com/file/d/1okqqXheJLlR4S2_EQenlsI5XsCgkT9dT/view?usp=sharing",
           "card_url": "",
           "steps": [
             "Bow / Ready Stance: Knife Hand to (L) side of (L) Leg",

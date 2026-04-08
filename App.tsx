@@ -14,6 +14,7 @@ import WeaponDefensePage from './pages/WeaponDefensePage';
 import { AuthProvider } from './contexts/AuthContext';
 import { GuestProvider } from './contexts/GuestContext';
 import GuestWelcomeModal from './components/GuestWelcomeModal';
+import QuickVideoRedirect from './pages/QuickVideoRedirect';
 
 const Layout: React.FC = () => {
     return (
@@ -35,14 +36,16 @@ const App: React.FC = () => {
                 <HashRouter>
                     <Routes>
                         <Route path="/" element={<Layout />}>
-                            <Route index element={<HomePage />} />
+                            <Route path="/video/:rotationId/:beltName" element={<QuickVideoRedirect />} />
+							<Route path="forms/:rotationSlug" element={<FormsRotationPage />} />
                             <Route path="forms" element={<FormsMenuPage />} />
-                            <Route path="forms/:rotationSlug" element={<FormsRotationPage />} />
+                            <Route index element={<HomePage />} />
                             <Route path="takedowns" element={<TakedownsPage />} />
                             <Route path="onesteps" element={<OneStepsPage />} />
                             <Route path="testing-requirements" element={<TestingRequirementsPage />} />
                             <Route path="breakaways" element={<BreakawaysPage />} />
                             <Route path="weapon-defense" element={<WeaponDefensePage />} />
+							
                         </Route>
                     </Routes>
                 </HashRouter>

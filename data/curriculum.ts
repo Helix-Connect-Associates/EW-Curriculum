@@ -369,7 +369,7 @@ export const rotations: Rotation[] = [
 		{
           "belt": "Advanced",
           "name": "Advanced",
-          "video_url": "https://youtu.be/Sq1KgAq1iPw?t=306",
+          "video_url": "https://youtu.be/Sq1KgAq1iPw?t=183",
           "card_url": "",
           "steps": [
             "Ready Stance: FORMAL",

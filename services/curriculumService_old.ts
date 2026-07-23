@@ -98,17 +98,6 @@ export function saveWelcomeMessage(message: string): void {
 
 // Getters
 export function getRotations(): Rotation[] { return getCurriculum().rotations; }
-
-// Quarterly rotation cycle: Rotation 1 = Jan-Mar, 2 = Apr-Jun, 3 = Jul-Sep, 4 = Oct-Dec.
-// Rotation 5 ("Weapons Forms") is not part of the quarterly cycle and is never auto-selected.
-export function getCurrentRotationId(referenceDate: Date = new Date()): number {
-    const month = referenceDate.getMonth(); // 0 = January ... 11 = December
-    if (month <= 2) return 1;   // Jan, Feb, Mar
-    if (month <= 5) return 2;   // Apr, May, Jun
-    if (month <= 8) return 3;   // Jul, Aug, Sep
-    return 4;                   // Oct, Nov, Dec
-}
-
 export function getTakedowns(): Takedown[] { return getCurriculum().takedowns; }
 export function getOneSteps(): OneStep[] { return getCurriculum().onesteps; }
 export function getBreakaways(): Breakaway[] { return getCurriculum().breakaways; }

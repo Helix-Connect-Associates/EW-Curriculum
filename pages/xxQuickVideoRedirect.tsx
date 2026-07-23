@@ -1,19 +1,13 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getRotations, getCurrentRotationId } from '../services/curriculumService';
+import { getRotations } from '../services/curriculumService';
 
 const QuickVideoRedirect: React.FC = () => {
     const { rotationId, beltName } = useParams<{ rotationId: string; beltName: string }>();
     const allRotations = getRotations();
 
-    // Support a permanent link: /video/current/:beltName always resolves to
-    // whichever quarterly rotation is active today. A specific rotation number
-    // (e.g. /video/3/element) still works exactly as before.
-    const isCurrent = rotationId?.toLowerCase() === 'current';
-    const resolvedRotationId = isCurrent ? getCurrentRotationId() : Number(rotationId);
-
     // Find the rotation by the number ID (1, 2, 3, 4)
-    const rotation = allRotations.find(r => r.id === resolvedRotationId);
+    const rotation = allRotations.find(r => r.id === Number(rotationId));
 
     // Find the form where the belt name matches what's in the URL
     const form = rotation?.forms.find(f => 
@@ -31,10 +25,7 @@ const QuickVideoRedirect: React.FC = () => {
         return (
             <div style={{ padding: '40px', textAlign: 'center', color: '#ew-gold' }}>
                 <h2>Form Not Found</h2>
-                <p>
-                    Could not find <strong>{beltName}</strong> for{' '}
-                    <strong>Rotation {isCurrent ? `${resolvedRotationId} (current)` : rotationId}</strong>.
-                </p>
+                <p>Could not find <strong>{beltName}</strong> for <strong>Rotation {rotationId}</strong>.</p>
                 <a href="/" style={{ color: 'white', textDecoration: 'underline' }}>Return to Home</a>
             </div>
         );

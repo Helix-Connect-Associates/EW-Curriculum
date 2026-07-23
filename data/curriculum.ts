@@ -245,7 +245,7 @@ export const rotations: Rotation[] = [
       "months": "July - September",
       "forms": [
         {
-          "belt": "Student Creed",
+          "belt": "White Belt",
           "name": "Student Creed",
           "video_url": "https://www.youtube.com/watch?v=Sq1KgAq1iPw&t=3s",
           "card_url": "",

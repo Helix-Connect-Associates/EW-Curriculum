@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useGuest } from '../contexts/GuestContext';
 
+// Served from /public — Vite copies this verbatim, so it's referenced by
+// absolute path rather than imported as a module.
+const LOGO_SRC = '/assets/brand/logo-192.png';
+
 const navLinks = [
     { to: '/', text: 'Home' },
     { to: '/forms', text: 'Forms' },
@@ -25,9 +29,12 @@ const Header: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <NavLink to="/" className="text-ew-gold hover:text-ew-gold-light transition-colors z-20">
-                        <div className="flex items-baseline">
-                            <h1 className="text-2xl md:text-3xl font-heading font-black tracking-tighter">EastWest MMA</h1>
-                            <span className="ml-2 text-sm md:text-base font-body text-ew-gold-light opacity-80 hidden sm:inline">Curriculum</span>
+                        <div className="flex items-center gap-3">
+                            <img src={LOGO_SRC} alt="EastWest MMA Combat Club logo" className="h-12 w-12 md:h-14 md:w-14 object-contain" />
+                            <div className="flex items-baseline">
+                                <h1 className="text-2xl md:text-3xl font-heading font-black tracking-tighter">EastWest MMA</h1>
+                                <span className="ml-2 text-sm md:text-base font-body text-ew-gold-light opacity-80 hidden sm:inline">Curriculum</span>
+                            </div>
                         </div>
                     </NavLink>
 

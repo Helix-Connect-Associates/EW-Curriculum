@@ -11,7 +11,6 @@ import OneStepsPage from './pages/OneStepsPage';
 import TestingRequirementsPage from './pages/TestingRequirementsPage';
 import BreakawaysPage from './pages/BreakawaysPage';
 import WeaponDefensePage from './pages/WeaponDefensePage';
-import { AuthProvider } from './contexts/AuthContext';
 import { GuestProvider } from './contexts/GuestContext';
 import GuestWelcomeModal from './components/GuestWelcomeModal';
 import QuickVideoRedirect from './pages/QuickVideoRedirect';
@@ -32,24 +31,21 @@ const Layout: React.FC = () => {
 const App: React.FC = () => {
     return (
         <GuestProvider>
-            <AuthProvider>
-                <HashRouter>
-                    <Routes>
-                        <Route path="/" element={<Layout />}>
-                            <Route path="/video/:rotationId/:beltName" element={<QuickVideoRedirect />} />
-							<Route path="forms/:rotationSlug" element={<FormsRotationPage />} />
-                            <Route path="forms" element={<FormsMenuPage />} />
-                            <Route index element={<HomePage />} />
-                            <Route path="takedowns" element={<TakedownsPage />} />
-                            <Route path="onesteps" element={<OneStepsPage />} />
-                            <Route path="testing-requirements" element={<TestingRequirementsPage />} />
-                            <Route path="breakaways" element={<BreakawaysPage />} />
-                            <Route path="weapon-defense" element={<WeaponDefensePage />} />
-							
-                        </Route>
-                    </Routes>
-                </HashRouter>
-            </AuthProvider>
+            <HashRouter>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        <Route path="/video/:rotationId/:beltName" element={<QuickVideoRedirect />} />
+                        <Route path="forms/:rotationSlug" element={<FormsRotationPage />} />
+                        <Route path="forms" element={<FormsMenuPage />} />
+                        <Route index element={<HomePage />} />
+                        <Route path="takedowns" element={<TakedownsPage />} />
+                        <Route path="onesteps" element={<OneStepsPage />} />
+                        <Route path="testing-requirements" element={<TestingRequirementsPage />} />
+                        <Route path="breakaways" element={<BreakawaysPage />} />
+                        <Route path="weapon-defense" element={<WeaponDefensePage />} />
+                    </Route>
+                </Routes>
+            </HashRouter>
         </GuestProvider>
     );
 };

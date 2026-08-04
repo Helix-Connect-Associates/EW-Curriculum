@@ -959,7 +959,10 @@ export const weaponDefenses: WeaponDefense[] = [
 	{ id: 6, weapon: 'Knife', strike: 'High Strike', defense: 'cross hand block above head right over left, step to the side stab in the leg .', finishing_move: 'Joint lock and disarm', video_url: '', video_time: '' },
 	{ id: 7, weapon: 'Knife', strike: 'Cross Strike ', defense: 'Form Block-Left, Shoulder block-right, punch to the face, elbow to the head, knee, cross your arm over by the elbow, figure 4 from right to left just above the elbow, thumb up, armbar.', finishing_move: 'Straigh armbar to scissor sweep', video_url: '', video_time: '' },
  	{ id: 8, weapon: 'Knife', strike: 'Advanced', defense: 'Double slash, step back then in, grab right hand on outside of wrist, bring left arm over inner elbow to figure four turn wrist over step behind take them down', finishing_move: '', video_url: '', video_time: '' },
-	{ id: 1, weapon: 'Gun', strike: 'Frontal Threat', defense: 'Push aside away from body with left hand. push into there body in the stomach area. throw punches to disable. reach underneath gun pull out from hand .', finishing_move: '', video_url: '', video_time: '' }
+	{ id: 1, weapon: 'Gun', strike: 'Frontal Threat', defense: 'Push aside away from body with left hand. push into there body in the stomach area. throw punches to disable. reach underneath gun pull out from hand .', finishing_move: '', video_url: '', video_time: '' },
+	{ id: 2, weapon: 'Gun', strike: 'Side Threat', defense: 'Push aside away from body with left hand. push into there body in the stomach area. throw punches to disable. reach underneath gun pull out from hand .', finishing_move: '', video_url: '', video_time: '' },
+	{ id: 3, weapon: 'Gun', strike: 'Rear #1', defense: 'Sweep your body around to the right, underhook the arm positioning the gun/wrist under your armpit. At the same time, use your left hand to push into their face.', finishing_move: '', video_url: '', video_time: '' },
+	{ id: 4, weapon: 'Gun', strike: 'Rear #2', defense: 'Sweep around to your left, grab the arm, overhook (left)for control. Throw elbows and punches. reach over to the gun  and pull out from hand .', finishing_move: '', video_url: '', video_time: '' }
 ];
 
 export const testingData: TestingData = {

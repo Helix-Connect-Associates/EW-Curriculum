@@ -978,8 +978,8 @@ export const testingData: TestingData = {
         { level: "Intermediate", rank: "Red Black", testfor: "Brown", form: "All", take_down: "Rear Naked Choke", one_step: "11", challenge: "100", sprint: "7", hours: "8" },
         { level: "Advanced", rank: "Brown", testfor: "Brown Black", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
         { level: "Advanced", rank: "Brown Black", testfor: "Black White", form: "All", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "8", hours: "8" },
-        { level: "Advanced", rank: "Black White", testfor: "Black Brown/Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-	{ level: "Black", rank: "Black Brown/Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
+        { level: "Advanced", rank: "Black White", testfor: "Black Brown", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
+	{ level: "Black", rank: "Black Brown", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
 	{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
 	{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }
 ],	
@@ -998,7 +998,7 @@ export const testingData: TestingData = {
         { level: "Advanced", rank: "Black White", testfor: "Black Green", form: "Advanced", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
 	{ level: "Advanced", rank: "Black Green", testfor: "Black Red", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
 	{ level: "Advanced", rank: "Black Red", testfor: "Black Brown", form: "All", take_down: "Dragon Tail", one_step: "15", sprint: "9", challenge: "100", hours: "8" },
-	{ level: "Advanced", rank: "Black Brown", testfor: "Black Brown/Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "10", hours: "26" },
+	{ level: "Advanced", rank: "Black Brown", testfor: "Half", form: "Two Rotations", take_down: "Dragon Tail", one_step: "15", challenge: "100", sprint: "10", hours: "26" },
 	{ level: "Black", rank: "Black Brown/Half", testfor: "Black", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "10", hours: "26" },
 	{ level: "Black", rank: "Black", testfor: "1st Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "11",hours: "26" },
 	{ level: "Black", rank: "1st Degree", testfor: "2nd Degree", form: "All Rotations", take_down: "All R/L", one_step: "15 R/L", challenge: "100", sprint: "12", hours: "26" }

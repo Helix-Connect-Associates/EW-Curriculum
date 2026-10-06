@@ -487,7 +487,7 @@ export const rotations: Rotation[] = [
         },
 		{
           "belt": "Advanced",
-          "name": "Zombies - Training",
+          "name": "Eye of the Tiger- Training",
           "video_url": "https://www.youtube.com/watch?v=EVgG_C8wuow",
           "card_url": "",
           "steps": [
@@ -496,7 +496,7 @@ export const rotations: Rotation[] = [
         },
 		{
           "belt": "Advanced",
-          "name": "Zombies - with Music",
+          "name": "Eye of the Tiger - with Music",
           "video_url": "https://drive.google.com/file/d/1x3bhWK4VSbiqC5Eb7QBxEZjgDJU3AC12/view?usp=sharing",
           "card_url": "",
           "steps": [

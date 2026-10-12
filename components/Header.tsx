@@ -15,13 +15,14 @@ const navLinks = [
     { to: '/breakaways', text: 'Breakaways' },
     { to: '/weapon-defense', text: 'Weapon Defense' },
     { to: '/testing-requirements', text: 'Testing' },
+    { to: '/training', text: 'Training' },
 ];
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { guestName } = useGuest();
 
-    const linkClasses = "block py-2 px-3 text-ew-gold hover:text-ew-gold-light md:p-0 transition-colors";
+    const linkClasses = "block py-2 px-3 text-ew-gold hover:text-ew-gold-light lg:p-0 whitespace-nowrap transition-colors";
     const activeLinkClasses = "text-ew-gold-light font-bold";
 
     return (
@@ -33,12 +34,12 @@ const Header: React.FC = () => {
                             <img src={LOGO_SRC} alt="EastWest MMA Combat Club logo" className="h-12 w-12 md:h-14 md:w-14 object-contain" />
                             <div className="flex items-baseline">
                                 <h1 className="text-2xl md:text-3xl font-heading font-black tracking-tighter">EastWest MMA</h1>
-                                <span className="ml-2 text-sm md:text-base font-body text-ew-gold-light opacity-80 hidden sm:inline">Curriculum</span>
+                                <span className="ml-2 text-sm md:text-base font-body text-ew-gold-light opacity-80 hidden sm:inline lg:hidden xl:inline">Curriculum</span>
                             </div>
                         </div>
                     </NavLink>
 
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden lg:flex items-center space-x-5 xl:space-x-7">
                         {navLinks.map(link => (
                              <NavLink key={link.to} to={link.to} className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : ''}`}>
                                 {link.text}
@@ -48,12 +49,12 @@ const Header: React.FC = () => {
                     
                     <div className="flex items-center gap-4">
                         {guestName && guestName !== 'Student' && (
-                            <div className="hidden lg:block text-ew-gold text-sm border border-ew-gold px-3 py-1 rounded-full">
+                            <div className="hidden 2xl:block text-ew-gold text-sm border border-ew-gold px-3 py-1 rounded-full">
                                 <span className="opacity-70">Training: </span>
                                 <span className="font-bold">{guestName}</span>
                             </div>
                         )}
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-ew-gold text-3xl focus:outline-none z-20" aria-label="Open mobile navigation menu">
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-ew-gold text-3xl focus:outline-none z-20" aria-label="Open mobile navigation menu">
                             {isMenuOpen ? '✕' : '☰'}
                         </button>
                     </div>
@@ -61,7 +62,7 @@ const Header: React.FC = () => {
             </div>
             
             {/* Mobile Menu */}
-            <div className={`md:hidden fixed inset-0 bg-ew-black bg-opacity-95 backdrop-blur-sm transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} z-10 pt-24`}>
+            <div className={`lg:hidden fixed inset-0 bg-ew-black bg-opacity-95 backdrop-blur-sm transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} z-10 pt-24`}>
                  <div className="flex flex-col items-center py-4 space-y-6">
                     {guestName && (
                         <div className="text-ew-gold-light mb-4 font-heading text-xl">

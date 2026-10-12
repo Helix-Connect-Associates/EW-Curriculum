@@ -137,6 +137,9 @@ const HomePage: React.FC = () => {
                     <NavTile to="/testing-requirements" title="Testing" icon="📋">
                         <p className="mt-2 text-sm text-ew-text-secondary">View belt requirements and board breaks.</p>
                     </NavTile>
+                    <NavTile to="/training" title="Training" icon="💪">
+                        <p className="mt-2 text-sm text-ew-text-secondary">Kickboxing combos, challenges, and training plans.</p>
+                    </NavTile>
                 </div>
             </div>
         </div>

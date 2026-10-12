@@ -14,6 +14,8 @@ import WeaponDefensePage from './pages/WeaponDefensePage';
 import { GuestProvider } from './contexts/GuestContext';
 import GuestWelcomeModal from './components/GuestWelcomeModal';
 import QuickVideoRedirect from './pages/QuickVideoRedirect';
+import TrainingMenuPage from './pages/TrainingMenuPage';
+import TrainingProgramPage from './pages/TrainingProgramPage';
 
 const Layout: React.FC = () => {
     return (
@@ -43,6 +45,8 @@ const App: React.FC = () => {
                         <Route path="testing-requirements" element={<TestingRequirementsPage />} />
                         <Route path="breakaways" element={<BreakawaysPage />} />
                         <Route path="weapon-defense" element={<WeaponDefensePage />} />
+                        <Route path="training" element={<TrainingMenuPage />} />
+                        <Route path="training/:slug" element={<TrainingProgramPage />} />
                     </Route>
                 </Routes>
             </HashRouter>

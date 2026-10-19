@@ -2,6 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Breadcrumb from '../components/Breadcrumb';
 import { getTrainingProgram, ListItem, strikeKind, TrainingBlock } from '../services/trainingService';
+import EastWest100 from '../components/training/EastWest100';
+
+/** Interactive tools a training .md file can embed with a {{name}} line. */
+const WIDGETS: Record<string, React.FC> = {
+    'eastwest-100': EastWest100,
+};
 
 /** Renders **bold** and [text](url) inside a line of content. */
 const Inline: React.FC<{ text: string }> = ({ text }) => {
@@ -193,6 +199,10 @@ const Block: React.FC<{ block: TrainingBlock; onDrill: (combo: ListItem) => void
                     </table>
                 </div>
             );
+        case 'widget': {
+            const Widget = WIDGETS[block.name];
+            return Widget ? <Widget /> : null;
+        }
     }
 };
 

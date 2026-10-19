@@ -19,7 +19,8 @@ export type TrainingBlock =
     | { type: 'paragraph'; text: string }
     | { type: 'callout'; text: string }
     | { type: 'list'; ordered: boolean; items: ListItem[] }
-    | { type: 'table'; headers: string[]; rows: string[][] };
+    | { type: 'table'; headers: string[]; rows: string[][] }
+    | { type: 'widget'; name: string };
 
 export interface TrainingProgram {
     slug: string;
@@ -38,6 +39,8 @@ const files = import.meta.glob('../training/*.md', { query: '?raw', import: 'def
 const COMBO_SPLIT = /\s*(?:→|->|=>|⇒)\s*/;
 const ORDERED = /^(\d+)[.)]\s+(.*)$/;
 const BULLET = /^[-*•]\s+(.*)$/;
+/** A line like {{eastwest-100}} embeds an interactive tool (see components/training). */
+const WIDGET = /^\{\{\s*([\w-]+)\s*\}\}$/;
 
 function parseFrontMatter(raw: string): { meta: Record<string, string>; body: string } {
     const meta: Record<string, string> = {};
@@ -67,6 +70,13 @@ export function parseTrainingMarkdown(body: string): TrainingBlock[] {
     while (i < lines.length) {
         const line = lines[i].trim();
         if (!line) { i++; continue; }
+
+        const widget = line.match(WIDGET);
+        if (widget) {
+            blocks.push({ type: 'widget', name: widget[1].toLowerCase() });
+            i++;
+            continue;
+        }
 
         if (/^#{1,6}\s+/.test(line)) {
             blocks.push({ type: 'heading', text: line.replace(/^#{1,6}\s+/, '') });
@@ -114,7 +124,7 @@ export function parseTrainingMarkdown(body: string): TrainingBlock[] {
         const para: string[] = [];
         while (i < lines.length) {
             const l = lines[i].trim();
-            if (!l || /^(#{1,6}\s|>|\|)/.test(l) || ORDERED.test(l) || BULLET.test(l)) break;
+            if (!l || /^(#{1,6}\s|>|\|)/.test(l) || ORDERED.test(l) || BULLET.test(l) || WIDGET.test(l)) break;
             para.push(l);
             i++;
         }

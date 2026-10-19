@@ -79,3 +79,22 @@ These show up as strike-by-strike chips, and the page gets a **Drill Mode** that
 **Bold text** — wrap in double asterisks: `**Rest 60 seconds**`
 
 **Links** — `[Watch the demo](https://youtu.be/...)`
+
+**Interactive tools** — a line with just a tool name in double curly braces drops that tool into the page
+at that spot. Write everything else around it as normal.
+
+```
+{{eastwest-100}}
+```
+
+| Tool name      | What it adds                                                                 |
+|----------------|------------------------------------------------------------------------------|
+| `eastwest-100` | The EastWest 100 push-up plan finder, personal workouts, rest timer, progress |
+
+The numbers behind the EastWest 100 (percentages, rest times, phase thresholds) live in
+`data/eastwest100.ts` — change a percentage there (0.5 = 50% of the student's test result) and the
+whole page updates.
+
+**Heads-up:** in any list, `→` or `->` turns the line into kickboxing strike chips. Avoid arrows in
+non-combo lists (use "to" instead).
+
